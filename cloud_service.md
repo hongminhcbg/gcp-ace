@@ -34,5 +34,10 @@ Compute Engine:
     - select number of core and memory
     
     GPU: add graphic handle, AI/ML processing
+    
+    static IP address:
+    - get a const ip address for VM instances
+    automatic_discount: depend on your runtime/total_time,
+    pre-emtive machine: short live, cheaper (up to 80%) 
 
 
