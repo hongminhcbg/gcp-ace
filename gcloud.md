@@ -30,3 +30,9 @@ Manage Instance Group (MIG):
 
     - managed as one unit
 
+MIG scenarios:
+
+    - want MIG managed app to survive zone failures => create multi zone MIG
+    - want to create VMs of different config => create un-managed intance group 
+
+
