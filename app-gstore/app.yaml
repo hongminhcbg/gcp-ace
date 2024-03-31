@@ -1,0 +1,5 @@
+runtime: go121
+env_variables:
+  GCLOUD_PROJECT_ID: data-store-418807
+
+

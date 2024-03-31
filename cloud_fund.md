@@ -15,3 +15,4 @@ cloud func concept:
     - zero infrastructure management
     - using container 
     - gcloud run deploy ...
+    - public internet -> cloud run -> trigger cloud func
