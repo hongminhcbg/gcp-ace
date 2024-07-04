@@ -17,4 +17,7 @@ three solution to quick init instance
     - startup script
     - create instace template
     - custom image
-   
+Review:
+    
+    Static IP Address: Get a const IP address for VM intances
+    Instance template: preconfig templates simplifying the creation of VMs
