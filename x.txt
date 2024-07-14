@@ -2,3 +2,9 @@
 REPOSITORY              FORMAT  MODE                 DESCRIPTION                                                                                 LOCATION         LABELS                          ENCRYPTION          CREATE_TIME          UPDATE_TIME          SIZE (MB)
 gcf-artifacts           DOCKER  STANDARD_REPOSITORY  This repository is created and used by Cloud Functions for storing function docker images.  asia-southeast1  goog-managed-by=cloudfunctions  Google-managed key  2024-03-24T21:02:20  2024-03-24T21:08:53  0
 quickstart-docker-repo  DOCKER  STANDARD_REPOSITORY  Docker repository                                                                           asia-southeast1                                  Google-managed key  2024-03-25T21:43:09  2024-03-25T21:43:09  0
+
+
+Compute Engine VM instances => iaas
+GKE => caas
+App Engine => paas
+Cloud Functions => faas
