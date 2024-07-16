@@ -25,3 +25,9 @@ Event trigger from:
     - using container 
     - gcloud run deploy ...
     - public internet -> cloud run -> trigger cloud func
+    - deploy a image to prod
+    - nolimit in languages
+
+Cloud Run vs App engine
+
+    Cloud Run gives developers more control over their environment as they can define memory and CPU allocations at a container level. App Engine manages resource configurations at the application level and can abstract many of the management tasks away, which is great for developers preferring a more managed environment
