@@ -2,7 +2,7 @@ Storage
 
 I. Block storage
 
-    - like a harddisks attached your computer
+    - like a hard disks attached your computer
     - one block storage device can be connected to one virtual server
 II. File storage 
 
@@ -17,7 +17,7 @@ ObJect storage:
     scenarios:
     - big file (100Gi): use pararellel composite upload, file is broken to small chunks and uploaded 
     - use application log: use storage class archive
-    -  logs file you want to access once in quarter: use cold line
+    - logs file you want to access once in quarter: use cold line
 
 command line:
 
@@ -37,5 +37,4 @@ notes:
     - Cloud Storage is serverless and autoscaling
     - Cloud Storage supports partial updates for an object => fail
     - object lifecycle Management
-
     

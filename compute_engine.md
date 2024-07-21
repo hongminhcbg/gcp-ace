@@ -17,4 +17,9 @@ three solution to quick init instance
     - startup script
     - create instace template
     - custom image
+
+shielded VM:
+
+    - Shielded VM offers verifiable integrity of your Compute Engine VM instances
+    - U can be confident your instances haven't been malware or Rootkit
    
