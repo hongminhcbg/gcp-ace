@@ -22,4 +22,14 @@ shielded VM:
 
     - Shielded VM offers verifiable integrity of your Compute Engine VM instances
     - U can be confident your instances haven't been malware or Rootkit
+
+Google CLoud Active Directory Sync:
+
+    - https://tools.google.com/dlpage/dirsync/thankyou.html
+    - sync active directory to google
+
+Preemtive VM:
+
+    - preemptible /priˈɛmptɪv/ VMs can provide up to 80% discount over normal VMs if the workloads are fault-tolerant
+    - howrever, CE migh be stop (preemt) there instances if it need to reclaim the compute capacity for allocates another VM
    
