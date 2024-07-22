@@ -18,6 +18,7 @@ ObJect storage:
     - big file (100Gi): use pararellel composite upload, file is broken to small chunks and uploaded 
     - use application log: use storage class archive
     - logs file you want to access once in quarter: use cold line
+    - gcs
 
 command line:
 
@@ -37,4 +38,11 @@ notes:
     - Cloud Storage is serverless and autoscaling
     - Cloud Storage supports partial updates for an object => fail
     - object lifecycle Management
+
+class:
+    
+    - standard: frequenly
+    - nearline: once per month
+    - coldline: once per quarter
+    - archive: once per year
     
