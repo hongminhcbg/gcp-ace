@@ -19,6 +19,8 @@ ObJect storage:
     - use application log: use storage class archive
     - logs file you want to access once in quarter: use cold line
     - gcs
+    - HA 11(9) annualy
+    - alway low latency, undependent storage class
 
 command line:
 
@@ -37,7 +39,13 @@ notes:
  
     - Cloud Storage is serverless and autoscaling
     - Cloud Storage supports partial updates for an object => fail
-    - object lifecycle Management
+    - object lifecycle Management:
+        detele_to_save_cost:
+            conditions_based_on: Age, CreatedBefore, isLive, NumberOfNewerVersions
+            two_kind_of_actions:
+                - SetStorageClass
+                - Deletion
+            config: Home -> create bucket -> Add rule
 
 class:
     
