@@ -3,7 +3,7 @@ IAM:
     Member: Who?
     Roles: Set of permissions
     Permissions: what action (list, get, delete)? what resources (app.log)?
-    Policy: assign roles to members
+    Policy: assign roles to members or group
 
 cmd:
 
@@ -30,6 +30,23 @@ ACL:
     
     Permission is allowed by IAM but NOT by ACL. Will the user be able to access the object?
     - Yes, u need either IAM or ACL
-    
-    
 
+Roles:
+    
+    - basic role: Owner, Viewer, Editor
+        viewer: read-only
+        editor: viewer + edit
+        owner: editor + IAM + billing
+    - predefine-role:
+        - fine granted roles and managed by google
+        - example: storage object admin, storage object viewer, 
+    - custom roles:
+        - custom anything
+
+On prem:
+    
+    - expose service account as json
+
+edit role:
+
+![Alt text](./imgs/edit_role.jpeg?raw=true "Title")
