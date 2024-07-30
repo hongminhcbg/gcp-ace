@@ -8,6 +8,7 @@ Category:
     - cloud sql
     - cloud spaner 
     - datastore
+    - filestore
 
 Database type:
 
@@ -15,6 +16,7 @@ Database type:
     relational OLAP db -> columnar storage, for admin and DA
     nosql db -> filestore (serverless transaction docs, mobile + web), bigtable (large db), not severless
     inmem database (cache) -> memstore, access in microsecond
+    OLPT: Online Transactional processing
 
 Scenarios:
 
@@ -28,7 +30,39 @@ Scenarios:
 
 Cloud SQL
 
-    
-    
+    - MySQL and SQL server
 
+# NoSQL:
+
+Datastore:
+    
+    - Document base database
+    - auto scale and auto partitions
+    - recommended upto a few TBs
+    - If bigger volume bigtable
+    - support transaction + index but not support join + sum + count
+    - flexible schema
+
+Filestore: (Datastore++)
+    
+    - support multi devices 
+    - offline mode or data sync across multiple devices - mobile, iot
+    - provide client-side lib (web, ios, android)
+    - collections <=> tables
+
+Bigtable:
+
+    - petabytes and more 
+    - not serverless
+
+Bigquery - datawarehouse
+
+    - SQL-like query
+    - realtime + serverless
+    - export: cloud storage or data studio (visualization), formats csv, json, 
+    - import: various src
+    - query from external src, cloud storage, cloud sql, bigtable
+    - remember bq can be expensive as you are running them on large data sets, est price with --dry-run flag
+    - price cost based on 1MB scaned data
+    
 

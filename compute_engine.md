@@ -32,4 +32,12 @@ Preemtive VM:
 
     - preemptible /priˈɛmptɪv/ VMs can provide up to 80% discount over normal VMs if the workloads are fault-tolerant
     - howrever, CE migh be stop (preemt) there instances if it need to reclaim the compute capacity for allocates another VM
+
+deployment-manager:
+
+    - https://cloud.google.com/deployment-manager/docs
+    - --preview option in the same project, and observe the state of interdependent resources.
    
+tasks:
+    
+    - msg ordering
