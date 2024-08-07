@@ -41,3 +41,8 @@ deployment-manager:
 tasks:
     
     - msg ordering
+
+ssh to VM or CE:
+
+    - metadate -> tab ssh key -> copy and paste value
+    - OS login and setup manual

@@ -12,5 +12,8 @@ Cloud Functions => faas
 - is incorrect because the reports view will not show billing information of all projects in the same window as the billing accounts are different
 - using a sole-tenant node, provides dedicated physical resources to a project, which ensures that resources on that server are only used by your project and not by any other project in the same project
 - Install the google-cloud-sdk-datastore-emulator component using the apt get install command.
--  changing the settings in the GCP console does not affect the gcloud command-line tool. The Settings page for Compute Engine does not have an option to set the default zone. It primarily allows you to configure the default project, enable APIs, manage SSH keys, and customize quota.
+- changing the settings in the GCP console does not affect the gcloud command-line tool. The Settings page for Compute Engine does not have an option to set the default zone. It primarily allows you to configure the default project, enable APIs, manage SSH keys, and customize quota.
 - Private Google Access allows VM instances with only internal IP addresses to reach Google APIs and services. This is useful for scenarios where you want to isolate your VM instances from the public internet but still need to access Google APIs and services.
+- You can reserve a static internal IP address before creating the associated resource, or you can create the resource with an ephemeral internal IP address and then promote that ephemeral IP address to a static internal IP address. In order to use a static internal IP address, you must have a VPC network in place for your project.
+(https://cloud.google.com/compute/docs/ip-addresses/configure-static-internal-ip-address)
+- deployment manager is the Infrastructure as a code tool for GCP. Deployment Manager is the recommended method for dynamically provisioning VMs on Compute Engine according to Google's best practices.

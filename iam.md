@@ -47,6 +47,47 @@ On prem:
     
     - expose service account as json
 
-edit role:
+Predefine Role:
+    
+    OrganizationAdmin: 
+        - define resources hierarchy
+        - define access management policies
+        - manege users and groups
+    BillAccountCreator:
+        - create billing account
+        - finance teams
+    BillAccountAdmin:
+        - manege bill account (active, inactive, export, link, unlink)
+        - canot create billAccount
+        - finance teams
+    BillAccountUser:
+        - Assign project to billAccount
+        - project owner
+    BillAccountViewer:
+        - view details
+        - auditor
+    AppEngineAdmin: App(RU)
+    AppEngineCreator: App(CD), svc+instance+versions(CRUD)
+    AppEngineViewer: app+svc+instance+versions(R)
+    AppEngineCodeViewer: versions.FileContent(R)
+    StorageAdmin: storage.bucket.*, storage.object.*
+    StorageObjectAdmin: storage.object.* (DOES NOT HAVE storage.bucket.*)
+    StorageObjectCreator: storage.object.* (C) 
+    BigQueryAdmin: bigquery.* 
+    BigQueryDataOwner: bigquery.datesets.*, bigquery.tables.*, bigquery.models.* (DOES NOT HAVE bigquery.jobs.*)
+    BigQueryJobUser: bq.jobs.* (C)
+    BigQueryUser: BigQueryDataViewer + bq.jobs.*(R)
+
+        
+        
+
+Best practices:
+
+    - basic role not recommended, prefer predefine role when possible
+    - Use SA with minimum previleges
+    - Google Acount: a person
+    - Service Account: an application account
+    - Group: a group of people or SAs
+    - Organization policy: Forcus on WHAT, what can be done on specific resources (example restrict public ip on SQL)
 
 ![Alt text](./imgs/edit_role.jpeg?raw=true "Title")
