@@ -46,3 +46,11 @@ ssh to VM or CE:
 
     - metadate -> tab ssh key -> copy and paste value
     - OS login and setup manual
+
+connect to VM from local (https://cloud.google.com/compute/docs/connect/add-ssh-keys#console):
+    
+    - gen ssh key at local $ssh-keygen -t rsa (setup public and pivate like git)
+    - edit running VM, Security -> SSH key -> add one
+    - get public key from local (cat xxx/rsa_key.pub)
+    - paste to text box -> save
+    - ssh like normal flow (ssh -i xxx/rsa -l $YOURNAME $YOUR_IP)
