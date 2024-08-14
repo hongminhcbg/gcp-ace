@@ -15,3 +15,7 @@ cloud DNS:
     - support public (access from internet) or private (access from gcp) DNS zone
     - the pub/sub API will not get automatically enabled
 
+Edit Machine Type (increase or decrease mem):
+
+    - stop VM, edit machine type, save, stop
+

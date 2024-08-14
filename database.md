@@ -64,5 +64,5 @@ Bigquery - datawarehouse
     - query from external src, cloud storage, cloud sql, bigtable
     - remember bq can be expensive as you are running them on large data sets, est price with --dry-run flag
     - price cost based on 1MB scaned data
-    
+    - dry-run (https://cloud.google.com/bigquery/docs/running-queries#dry-run)
 
