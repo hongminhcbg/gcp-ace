@@ -4,3 +4,6 @@ features:
 
     - exe untrusted 3rd party 
     - efficient + auto scaling
+
+GKE apha mode: max 30 days
+

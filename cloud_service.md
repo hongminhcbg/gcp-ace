@@ -16,7 +16,9 @@ Compute Engine:
     Family: 
         - general purpose: E2, N2, N2D, N1
         - high memory: M2, M1
-        - Compute optimized: C2 for gaming
+        - Compute optimized: C2 for gaming, H2
+        - Storage optimize: Z
+        - 
     e2-standard-2:
         'e2' -> machine family
         'standard' -> wordload

@@ -17,3 +17,11 @@ Cloud Functions => faas
 - You can reserve a static internal IP address before creating the associated resource, or you can create the resource with an ephemeral internal IP address and then promote that ephemeral IP address to a static internal IP address. In order to use a static internal IP address, you must have a VPC network in place for your project.
 (https://cloud.google.com/compute/docs/ip-addresses/configure-static-internal-ip-address)
 - deployment manager is the Infrastructure as a code tool for GCP. Deployment Manager is the recommended method for dynamically provisioning VMs on Compute Engine according to Google's best practices.
+
+Who create VMs in GCP? => Admin Activity Logs
+
+--- important notes---
+- cloud billing account 
+- VPC, peer VPC
+- nodeport with multi nodes
+- shared VPC

@@ -1,14 +1,12 @@
 Overview
     
     User -> cloud LB -> Instances, cloud func
-
-layer 7: http, https, smtp
-layer 4: tcp, udp, tls
-layer 3: ip
-
-TCP -> reliability > performance
-UDP -> performance > reliability (video streaming)
-TLS -> secure TCP
+    layer 7: http, https, smtp
+    layer 4: tcp, udp, tls
+    layer 3: ip
+    TCP -> reliability > performance
+    UDP -> performance > reliability (video streaming)
+    TLS -> secure TCP
 
 Serverless:
     
@@ -40,5 +38,3 @@ How to choose LB type
         If HTTP => internal LB
         else => internal TCP/UDP LB
             
-
-

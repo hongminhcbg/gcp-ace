@@ -54,3 +54,10 @@ connect to VM from local (https://cloud.google.com/compute/docs/connect/add-ssh-
     - get public key from local (cat xxx/rsa_key.pub)
     - paste to text box -> save
     - ssh like normal flow (ssh -i xxx/rsa -l $YOURNAME $YOUR_IP)
+
+container images to create VM:
+
+    - public image
+    - custom image
+    - container image
+    - not support hybrid image

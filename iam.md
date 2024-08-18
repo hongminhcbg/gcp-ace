@@ -77,8 +77,10 @@ Predefine Role:
     BigQueryDataOwner: bigquery.datesets.*, bigquery.tables.*, bigquery.models.* (DOES NOT HAVE bigquery.jobs.*)
     BigQueryJobUser: bq.jobs.* (C)
     BigQueryUser: BigQueryDataViewer + bq.jobs.*(R)
-
-        
+    BigQueryDataViewer: read data and metadate from table, can't create job
+    CloudSqlAdmin: Full sql resource
+    CloudSqlClient: connect to sql instance
+    PrivateLogViewer: View log and private log, data access log is private log
         
 
 Best practices:
