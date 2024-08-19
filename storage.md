@@ -53,4 +53,11 @@ class:
     - nearline: once per month
     - coldline: once per quarter
     - archive: once per year
+
+Notes:
+
+    - cloud container registry use cloud storage as the underlying storage for container images
+    - local SSD for hish IOPS workloads
+
+
     
