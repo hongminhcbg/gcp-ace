@@ -61,3 +61,5 @@ container images to create VM:
     - custom image
     - container image
     - not support hybrid image
+    - list active VM daily => separate two config, switch config, write script run 'cloud compute list'
+    - set metadata 'enable-os-login=true', grant user role/compute.osLogin => easiest way to grant user without ssh key

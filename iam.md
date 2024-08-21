@@ -91,5 +91,6 @@ Best practices:
     - Service Account: an application account
     - Group: a group of people or SAs
     - Organization policy: Forcus on WHAT, what can be done on specific resources (example restrict public ip on SQL)
+    - user has GSuite account => grant required role to the project is the correct way to give them access
 
 ![Alt text](./imgs/edit_role.jpeg?raw=true "Title")
