@@ -27,6 +27,7 @@
     - public internet -> cloud run -> trigger cloud func
     - deploy a image to prod
     - nolimit in languages
+    - first page is higher latency than sub page => cloud func need to wake up
 
 # Cloud Run vs App engine
 

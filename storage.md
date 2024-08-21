@@ -59,6 +59,10 @@ Notes:
     - cloud container registry use cloud storage as the underlying storage for container images
     - local SSD for hish IOPS workloads
     - control bigquery cost => apply project quota
+    - Storage Transfer Service is primarily designed for transferring large amounts of data between different storage services rather than handling streaming data
+    - 1000T of data => copy data and ship to Google
+
+
 
 
     

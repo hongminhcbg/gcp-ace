@@ -29,6 +29,11 @@ Cloud Interconnect:
 
     - high speed physical connection between on premise and VPC networks
 
+Notes:
+
+    - best practices whitelist by SA
+    - enable private cloud access in VPC => access Google cloud API and svc
+
 Peer network u must peer A->B and B->A
 ![Alt text](./imgs/peernetwork.jpeg?raw=true "Title")
 

@@ -66,3 +66,17 @@ Bigquery - datawarehouse
     - price cost based on 1MB scaned data
     - dry-run (https://cloud.google.com/bigquery/docs/running-queries#dry-run)
 
+Cloud Storage
+
+    - suitable for both structure and unstructure data
+
+Cloud Spanner
+
+    - growth with minimum config
+    - global distributed relational db
+    - management complexity to a minimum
+
+Notes:
+
+    - growth with minimum config => Cloud Spanner
+

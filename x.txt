@@ -25,3 +25,13 @@ Who create VMs in GCP? => Admin Activity Logs
 - VPC, peer VPC
 - nodeport with multi nodes
 - shared VPC
+- VPC firewall rules
+- pricing calculator is included discount pricing
+- https://cloud.google.com/dns/docs/records#creating-resource-records
+- can deploy the solution directly from cloud maketplace
+- Cloud Foundation Toolkit (CFT) is a collection of deployment and operations tools for Google Cloud Platform (GCP) that are designed to help you implement best practices.
+- docker + minimal admin => Cloud run 
+- Cloud VPN is the Google-recommended way to connect an on-premise network with GCP
+- kubectl config connector can delete pubsub topic => https://cloud.google.com/config-connector/docs/how-to/getting-started#deleting_a_resource
+- artifact registry is the next generation of contianer registry
+- can't upload image directly to GCS
