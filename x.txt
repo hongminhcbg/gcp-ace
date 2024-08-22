@@ -35,3 +35,5 @@ Who create VMs in GCP? => Admin Activity Logs
 - kubectl config connector can delete pubsub topic => https://cloud.google.com/config-connector/docs/how-to/getting-started#deleting_a_resource
 - artifact registry is the next generation of contianer registry
 - can't upload image directly to GCS
+- Who is accessed GCS data => turn on data access logs, query log
+- oganization level => fail

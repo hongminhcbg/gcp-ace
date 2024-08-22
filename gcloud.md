@@ -22,9 +22,12 @@ command structure:
     // add default zone and region
     $ gcloud compute project-info add-metadata --metadata=google-compute-default-region=asia-southeast1
     $ gcloud compute project-info add-metadata --metadata=google-compute-default-region=asia-southeast1,google-compute-default-zone=asia-southeast1-a
+    // default zone with cmd
+    $ gcloud config set compute/zone aaa
     
     // list image
     $ gcloud compute images list
+    $ gcloud auth active-svc-account ... // use SA local, because gcloud sdk is not a standard method to auth
 
 Manage Instance Group (MIG):
 

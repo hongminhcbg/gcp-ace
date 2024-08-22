@@ -76,6 +76,10 @@ Cloud Spanner
     - global distributed relational db
     - management complexity to a minimum
 
+Datastudio 
+
+    - build dashboard
+
 Notes:
 
     - growth with minimum config => Cloud Spanner

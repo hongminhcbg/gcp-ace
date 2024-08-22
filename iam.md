@@ -92,5 +92,6 @@ Best practices:
     - Group: a group of people or SAs
     - Organization policy: Forcus on WHAT, what can be done on specific resources (example restrict public ip on SQL)
     - user has GSuite account => grant required role to the project is the correct way to give them access
+    - grant IAM with oganization level => give them acc all projects => Risk security
 
 ![Alt text](./imgs/edit_role.jpeg?raw=true "Title")
