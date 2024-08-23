@@ -81,7 +81,6 @@ Predefine Role:
     CloudSqlAdmin: Full sql resource
     CloudSqlClient: connect to sql instance
     PrivateLogViewer: View log and private log, data access log is private log
-        
 
 Best practices:
 
