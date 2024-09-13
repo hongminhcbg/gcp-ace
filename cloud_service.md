@@ -18,7 +18,6 @@ Compute Engine:
         - high memory: M2, M1
         - Compute optimized: C2 for gaming, H2
         - Storage optimize: Z
-        - 
     e2-standard-2:
         'e2' -> machine family
         'standard' -> wordload
