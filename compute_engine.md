@@ -57,9 +57,13 @@ connect to VM from local (https://cloud.google.com/compute/docs/connect/add-ssh-
 
 container images to create VM:
 
-    - public image
-    - custom image
-    - container image
-    - not support hybrid image
-    - list active VM daily => separate two config, switch config, write script run 'cloud compute list'
-    - set metadata 'enable-os-login=true', grant user role/compute.osLogin => easiest way to grant user without ssh key
+  - public image
+  - custom image
+  - container image
+  - not support hybrid image
+  - list active VM daily => separate two config, switch config, write script run 'cloud compute list'
+  - set metadata 'enable-os-login=true', grant user role/compute.osLogin => easiest way to grant user without ssh key
+
+compute options:
+
+  -  
