@@ -58,3 +58,10 @@ Pubsub:
   - go, python, nodejs sdk
   - mobile
   - cloud shell quota: 50 hours / w
+
+# Project
+
+  - project_id: gobal unique, immutable after create
+  - project_name: chosen by you, mutable
+  - project_number: assigned by google
+
