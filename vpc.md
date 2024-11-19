@@ -36,10 +36,3 @@ Notes:
 
 Peer network u must peer A->B and B->A
 ![Alt text](./imgs/peernetwork.jpeg?raw=true "Title")
-
-    
-
-
-
-    
-    
