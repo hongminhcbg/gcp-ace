@@ -9,6 +9,7 @@ Virtual Cloud Private
     - CIDR block
     - firewall rule (0-65535) [0: highest]
     - VM in default netword can't ping to internal IP of VM in VPC. But can ping to public IP
+    - a isolated private cloud and hosted within a public cloud
 
 VPC subnet:
 
