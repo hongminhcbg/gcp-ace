@@ -69,3 +69,58 @@ compute options:
   -  
 
 # Backup
+
+# Attach extra disk
+
+Local disk:
+  
+  - the disk directly attach with your machine
+  - no network delay
+
+Additional storage:
+
+  - network storage
+
+Create disk:
+  
+  - Compute engine -> storage -> disk -> create new
+  - https://cloud.google.com/compute/docs/disks/?_gl=1*1r6byv*_ga*MTAwODAwMzE4OC4xNzMxNzU4MTI1*_ga_WH2QY8WWF5*MTczMjI2NDAwNy40LjEuMTczMjI2NDg0My41OC4wLjA.#introduction
+
+Cmd format and mount disk
+
+```sh
+  sudo mkfs.ext4 -m 0 -F -E lazy_itable_init=0,lazy_journal_init=0,discard /dev/sdb // or sudo mkfs.ext4 /dev/sdb
+  sudo mkdir -p /mnt/disk-1
+  sudo mount -o discard,defaults /dev/sdb /mnt/disk-1
+  sudo chmod a+w /mnt/disk-1/
+```
+
+Local disk
+
+  - only add when create VM
+
+## Availability Policy (standard or spot)
+
+Onhost maintainance
+
+  - migrate the VM from one rack to another rack
+  - if chose "Migrate the VM instance" => migrate without down time
+  - if type is spot use can chose 'Delete' or 'Stop'
+
+# Manage Instance Group (MIG):
+
+    - managed as one unit
+
+MIG scenarios:
+
+    - want MIG managed app to survive zone failures => create multi zone MIG
+    - want to create VMs of different config => create un-managed intance group 
+
+# Unmaneage Instance Group:
+
+  - Group of VM diff configation
+  - Create VM1 and VM2 with diff config
+  - Create UMIG and sellect 2VM
+
+
+

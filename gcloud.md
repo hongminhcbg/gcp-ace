@@ -29,15 +29,6 @@
   $ gcloud compute images list
   $ gcloud auth active-svc-account ... // use SA local, because gcloud sdk is not a standard method to auth
 
-# Manage Instance Group (MIG):
-
-    - managed as one unit
-
-MIG scenarios:
-
-    - want MIG managed app to survive zone failures => create multi zone MIG
-    - want to create VMs of different config => create un-managed intance group 
-
 Pubsub:
     
     - exactly_once_delivery:
