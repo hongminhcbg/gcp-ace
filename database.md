@@ -31,6 +31,7 @@ Scenarios:
 Cloud SQL
 
     - MySQL and SQL server
+    - only support read replicas
 
 # NoSQL:
 
@@ -84,3 +85,44 @@ Notes:
 
     - growth with minimum config => Cloud Spanner
 
+Vertical scaling:
+    
+    - 8 vcpu - RAM 16Gi -> 12 vcpu - RAM 24Gi
+
+Hoziontal scaling:
+
+    - 1 node -> 3 nodes and same config
+
+IOPS:
+
+    - the number of read/write operation per second
+
+## Guides:
+
+### Compute Engine connect to CloudSQL
+
+docs: 
+
+https://cloud.google.com/sql/docs/mysql/connect-instance-compute-engine
+https://cloud.google.com/sql/docs/mysql/configure-ip#add
+
+
+#### With public IP
+
+```yaml
+
+    step 1: Create cloud sql
+    step 2: Create VM
+    step 3: White list IP, cloudSQL -> Connections -> Public IP -> Add Network -> Add public IP of VM to whitelist
+    step 4: Test connection from VM, $mysql -u mint -h 34.124.242.225 # 34.124.242.225 is public IP of cloudSQL  
+```
+
+## Cloud Spanner
+
+    - cloudSQL limitation 30TB
+    - distributed and scalable for GCP
+    - Hoziontal scalebility (appending more node)
+    - use when data volume > 2TB
+    - expensive than cloudSQL
+    - read/write across region (no need read replicas)
+    - cloud spanner = cloudSQL + hoziontal scale (no limit RAM and CPU)

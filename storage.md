@@ -62,7 +62,18 @@ Notes:
     - Storage Transfer Service is primarily designed for transferring large amounts of data between different storage services rather than handling streaming data
     - 1000T of data => copy data and ship to Google
 
+Storage Location:
 
+  single_region:
+    - lowest latency in same region
+    - replication across multiple zone
+  dual_region:
+    - HA and low latency across 2 regions
+    - auto fail over
+  multiple_region:
+    - highest HA but latency, to serve global user
+    - auto failover
 
+Bucket retendtion:
 
-    
+  - set the minimun duration that this bucket's object must be protected from deletion or midification after they uploaded
