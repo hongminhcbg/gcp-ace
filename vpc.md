@@ -13,7 +13,8 @@ Virtual Cloud Private
 
 VPC subnet:
 
-    1 subnet belong to 1 region
+    - 1 subnet belong to 1 region
+    - 1 VPC must has minimum 1 subnet
 
 Allow pings both 2 VM
 
@@ -37,3 +38,102 @@ Notes:
 
 Peer network u must peer A->B and B->A
 ![Alt text](./imgs/peernetwork.jpeg?raw=true "Title")
+
+## Type of VPC
+
+### default
+
+```
+  - create when CE api created
+  - every project has default VPC
+```
+
+### Auto
+```
+- auto created
+- fix subnetwork range created per region
+- can expand from /20 to /16
+```
+
+### Custom
+```
+- no subnet auto created
+- can create subnet manual per region
+```
+
+## VM to VM comunication
+
+```
+protocol:
+  ssh: port 22
+  http: port 80
+  icmp: Internet control message protocol, ping-pong method
+```
+
+## Firewall
+
+```
+- priority: 0-65536, 0 is highest
+- internet -> firewall -> VPC
+- control the traffic from out side world
+- IP ragne 0.0.0.0/0 is match all
+```
+Allow ping (ICMP) firewall
+```json
+{
+  "allowed": [
+    {
+      "IPProtocol": "icmp"
+    }
+  ],
+  "creationTimestamp": "2024-12-08T22:58:48.797-08:00",
+  "description": "Allow ICMP from anywhere",
+  "direction": "INGRESS",
+  "disabled": false,
+  "enableLogging": false,
+  "id": "4033887356866735047",
+  "kind": "compute#firewall",
+  "logConfig": {
+    "enable": false
+  },
+  "name": "default-allow-icmp",
+  "network": "projects/sqlx-444206/global/networks/default",
+  "priority": 65534,
+  "selfLink": "projects/sqlx-444206/global/firewalls/default-allow-icmp",
+  "sourceRanges": [
+    "0.0.0.0/0"
+  ]
+}
+```
+
+Allow ssh firewall rule
+
+```json
+{
+  "allowed": [
+    {
+      "IPProtocol": "tcp",
+      "ports": [
+        "22"
+      ]
+    }
+  ],
+  "creationTimestamp": "2024-12-09T23:18:38.099-08:00",
+  "description": "allow ssh",
+  "direction": "INGRESS",
+  "disabled": false,
+  "enableLogging": false,
+  "id": "9064343930878449057",
+  "kind": "compute#firewall",
+  "logConfig": {
+    "enable": false
+  },
+  "name": "allow-22",
+  "network": "projects/sqlx-444206/global/networks/dbvpc",
+  "priority": 999,
+  "selfLink": "projects/sqlx-444206/global/firewalls/allow-22",
+  "sourceRanges": [
+    "0.0.0.0/0"
+  ]
+}
+```
