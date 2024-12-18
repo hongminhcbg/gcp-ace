@@ -22,7 +22,6 @@ import (
 )
 
 var (
-	sqlCloudDNS            string
 	err                    error
 	db                     *gorm.DB
 	dbPwd                  string
@@ -35,6 +34,10 @@ type User struct {
 	Id       int    `json:"id"`
 	UserName string `json:"user_name"`
 	Password string `json:"password"`
+}
+
+type GetKms struct {
+	Path string `json:"path"`
 }
 
 func (User) TableName() string {
@@ -78,23 +81,48 @@ func connectWithConnector() (*sql.DB, error) {
 
 func connect() error {
 	sqlDB, err := connectWithConnector()
+	if err != nil {
+		panic(err)
+	}
 	db, err = gorm.Open(gmysql.New(gmysql.Config{
 		Conn: sqlDB,
 	}), &gorm.Config{})
 	if err != nil {
 		log.Println(err, "connect GORM error")
-		return err
+		panic(err)
 	}
 
 	return nil
 }
 
 func init() {
-	sqlCloudDNS, err = getSecretKey("projects/243723541767/secrets/sql_dns/versions/latest")
-	dbPwd, err = getSecretKey("projects/243723541767/secrets/sql_pw/versions/latest")
-	instanceConnectionName, err = getSecretKey("projects/243723541767/secrets/sql_cname/versions/latest")
-	usePrivate, err = getSecretKey("projects/243723541767/secrets/sql_ip_private/versions/latest")
-	dbUser, err = getSecretKey("projects/243723541767/secrets/sql_user/versions/latest")
+	dbPwd, err = getSecretKey("projects/113836958378/secrets/sql_pw/versions/latest")
+	instanceConnectionName, err = getSecretKey("projects/113836958378/secrets/sql_cname/versions/latest")
+	usePrivate, err = getSecretKey("projects/113836958378/secrets/sql_ip_private/versions/latest")
+	dbUser, err = getSecretKey("projects/113836958378/secrets/sql_user/versions/latest")
+}
+
+func getKmsKey(w http.ResponseWriter, r *http.Request) {
+	b, err := io.ReadAll(r.Body)
+	if err != nil {
+		http.Error(w, "Invalid request body", http.StatusBadRequest)
+		return
+	}
+
+	user := new(GetKms)
+	err = json.Unmarshal(b, user)
+	if err != nil {
+		http.Error(w, "Invalid request body "+err.Error(), http.StatusBadRequest)
+		return
+	}
+
+	key, err := getSecretKey(user.Path)
+	if err != nil {
+		http.Error(w, "KetKeyErr"+err.Error(), http.StatusBadRequest)
+		return
+	}
+
+	fmt.Fprint(w, "Hello, World!", key)
 }
 
 func createUserHandler(w http.ResponseWriter, r *http.Request) {
@@ -102,7 +130,7 @@ func createUserHandler(w http.ResponseWriter, r *http.Request) {
 		err := connect()
 		if err != nil {
 			fmt.Fprint(w, "connect error ", err.Error())
-			return
+			panic(err)
 		}
 
 		fmt.Fprint(w, "connect success")
@@ -129,7 +157,20 @@ func createUserHandler(w http.ResponseWriter, r *http.Request) {
 	err = db.Create(user).Error
 	if err != nil {
 		http.Error(w, "Create user error", http.StatusInternalServerError)
-		return
+		panic(err)
+	}
+
+	sqlDB, err := db.DB()
+	if err != nil {
+		fmt.Fprint(w, "connect error ", err.Error())
+		panic(err)
+	}
+
+	err = sqlDB.Ping()
+	if err != nil {
+		fmt.Fprint(w, "connect error ", err.Error())
+		panic(err)
+
 	}
 
 	log.Println("create user success", user)
@@ -142,6 +183,9 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 	switch r.URL.Path {
 	case "/create-sql":
 		createUserHandler(w, r)
+		return
+	case "/kms-key":
+		getKmsKey(w, r)
 		return
 	}
 
