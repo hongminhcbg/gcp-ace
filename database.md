@@ -36,7 +36,6 @@ Cloud SQL
 # NoSQL:
 
 Datastore:
-    
     - Document base database
     - auto scale and auto partitions
     - recommended upto a few TBs
@@ -115,6 +114,23 @@ https://cloud.google.com/sql/docs/mysql/configure-ip#add
     step 2: Create VM
     step 3: White list IP, cloudSQL -> Connections -> Public IP -> Add Network -> Add public IP of VM to whitelist
     step 4: Test connection from VM, $mysql -u mint -h 34.124.242.225 # 34.124.242.225 is public IP of cloudSQL  
+```
+
+### Appengine connect to CloudSQL
+#### With connection name
+```
+    step1: Deploy app engine, example code (https://github.com/hongminhcbg/gcp-ace/blob/main/app-engines/app-login/main.go)
+    step2: Grant role 'Secret Manager Secret Accessor' to default app engine SA 
+    step3: Setup secret value, important key 'sql_cname' = connection name
+    step4: Enable 'Cloud SQL Admin API'
+```
+
+### Cloud SQL Auth Proxy (https://cloud.google.com/sql/docs/mysql/connect-instance-auth-proxy)
+```
+    - provides secure access to your instances with out a need for auth-networks or configuring SSL 
+    - secure connection: auto encrypt traffic 
+    - easy: The Cloud SQL Auth Proxy uses IAM permissions to control who and what can connect to your Cloud SQL instances. Thus, the Cloud SQL Auth Proxy handles authentication with Cloud SQL, removing the need to provide static IP addresses.
+    - auth: auto refresh access token
 ```
 
 ## Cloud Spanner
