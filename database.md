@@ -116,6 +116,10 @@ https://cloud.google.com/sql/docs/mysql/configure-ip#add
     step 4: Test connection from VM, $mysql -u mint -h 34.124.242.225 # 34.124.242.225 is public IP of cloudSQL  
 ```
 
+#### With private IP
+
+    https://cloud.google.com/sql/docs/mysql/private-ip
+
 ### Appengine connect to CloudSQL
 #### With connection name
 ```
