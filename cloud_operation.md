@@ -1,11 +1,11 @@
-Cloud Operations:
+## Cloud Operations:
 
     - monitoring
     - logging
     - tracing
     - debugging
 
-Cloud Monitoring:
+## Cloud Monitoring:
 
     - Measures key aspects of svc (metrics)
     - create visualiaztions (graph and dashboard) 
@@ -17,7 +17,7 @@ Cloud Monitoring:
         Default metrics: CPU, disk traffic, network traffic, uptime
         If want more: Install cloud monitoring agent
 
-Cloud Logging:
+## Cloud Logging:
 
     - realtime log and analysis tool
     - allow store, search and alert
