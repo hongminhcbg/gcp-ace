@@ -56,3 +56,15 @@ Pubsub:
   - project_name: chosen by you, mutable
   - project_number: assigned by google
 
+# Cloud Armor
+
+  - Cloud Armor is a DDoS protection and web application firewall service that helps protect applications from external threats
+
+# Dict
+
+  - potential: that can be develop into something
+
+# TODO
+
+  - cloud task
+  - cloud scheduler

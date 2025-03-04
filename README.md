@@ -12,3 +12,17 @@ GCP ACE docs
   - App engine: PAAS, serverless
     - bind code to lib, forcus on application logic
     - pay for the resources they actually use
+
+# Serverless
+
+  - Cloud Functions: Function as a Service
+  - Cloud Run: Serverless containers
+  - App Engine: Flexible and Standard
+  - BigQuery: Serverless Data Warehouse
+  - Cloud Storage: Serverless Storage
+  - Pub/Sub: Serverless Messaging”
+
+# TODOS
+
+  - Cloud endpoints
+  - count API gateway

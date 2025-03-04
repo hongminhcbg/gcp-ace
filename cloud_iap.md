@@ -1,11 +1,11 @@
 ## Cloud IAP
 
 ### Identity aware proxy
-
 ```
 - single point of control for managing user access to web or cloud resource
-- manage ssh and http based on resources
+- manage ssh and http(s) based on resources
 ```
+
 ### Usage
 ```
 - ssh from private IP
