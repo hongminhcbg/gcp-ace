@@ -77,3 +77,7 @@ Storage Location:
 Bucket retendtion:
 
   - set the minimun duration that this bucket's object must be protected from deletion or midification after they uploaded
+
+Storeage:
+
+    - Events(upload, delete) -> Eventarc (native filter) - Cloud func

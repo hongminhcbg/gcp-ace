@@ -1,9 +1,11 @@
-IAM:
-    
-    Member: Who?
-    Roles: Set of permissions
-    Permissions: what action (list, get, delete)? what resources (app.log)?
-    Policy: assign roles to members or group
+# IAM
+
+  - IAM = "Who can do WHAT on WHICH resources?" 
+  - Member, identity, email, sa: Who?
+  - Roles:  Set of permissions => WHAT
+  - Permissions: what action (list, get, delete)? what resources (app.log)? => WHAT
+  - Policy: assign roles to members or group
+  - Compute engine, app engine, pub/sub ... => WHICH
 
 cmd:
 
@@ -94,3 +96,27 @@ Best practices:
     - grant IAM with oganization level => give them acc all projects => Risk security
 
 ![Alt text](./imgs/edit_role.jpeg?raw=true "Title")
+
+
+Workload Identity federation GKE:
+
+  - 
+
+# Type of cloud identity
+
+  - Google Account (mostly gmail, gsuite)
+  - Service account: none humand
+  - Google Workspace account
+  - Cloud Identity Domain
+  - Google Groups
+
+# Service Account
+
+  - for none humand
+  - max 10 keys for a sa
+  - max 100 sa per project
+  - not a member of gg workspace
+
+# Add roles to sa 
+
+  Home -> IAM -> Grant access -> Principal = sa name -> chose roles

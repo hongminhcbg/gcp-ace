@@ -26,3 +26,7 @@ GCP ACE docs
 
   - Cloud endpoints
   - count API gateway
+  - cloud profiler
+  - You have a GKE cluster with Istio service mesh deployed. One of your services, Service A, cannot invoke another service, Service B, over HTTPS. Both services have Istio sidecars and you have confirmed that Service A's requests to Service B are leaving the sidecar. What could be the cause of this issue?
+  - Private Google Access
+  - Handling sessions with Firestore (https://cloud.google.com/go/getting-started/session-handling-with-firestore)
