@@ -80,3 +80,4 @@ gsutil ls gs://xxxyyymint
 # results: 
 # gs://xxxyyymint/.DS_Store
 ```
+## Expose k8s service to internet [link](https://cloud.google.com/kubernetes-engine/docs/tutorials/http-balancer)
