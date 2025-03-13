@@ -45,3 +45,6 @@
 
   - App engine -> settings -> turn on IAP
 
+### Step 4
+
+  - To grant access to the application, click "Add Principal" and select the IAP-secured Web App User role
