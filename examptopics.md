@@ -39,3 +39,7 @@
 # 42
 
     default svc of cloud func is  service-PROJECTA@gcf-admin-robot.iam.gserviceaccount.com
+
+# 43
+
+    auth service fails under intermittent load
