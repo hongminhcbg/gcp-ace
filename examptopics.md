@@ -43,3 +43,85 @@
 # 43
 
     auth service fails under intermittent load
+
+# 44
+
+    Application failure, want to collect application's information to troubleshoot the issue
+    ---
+    install log agent
+
+# 45
+
+    ---
+    Create manual subnets.
+
+# 46 
+
+    which cloud svc The company should use to enable access to internal app?
+    ---
+    Cloud IAP
+
+# 47
+
+    The compaty want to remove on-call engineers and eliminate manual scaling?
+    ---
+    - App engine
+    - Clound functions
+
+# 48
+
+    State is stored in a single instance MySQL database in GCP.
+    But
+    Business Requirements: Increase the number of concurrent users that can be supported
+    ---
+    move MySQL to cloud spanner
+
+# 49
+
+    Which service should HipLocal use for their public APIs?
+    ---
+    Cloud Endpoints
+
+# 50
+
+    Want to improve resilience of their MySQL?
+    ---
+    Replace the current single instance MySQL instance with Cloud SQL, and configure high availability
+
+# 51
+
+    Your app is running on multiple GKE cluster, how to see all log?
+    ---
+    gcloud logging read --resouce={...}
+
+# 52
+
+    U are using cloud build. Your app is built on every commit on master branch. 
+    U want to release specific commits made to the master branch in an automated method?
+    ---
+    create a build trigger on a git tag pattern
+
+# 53
+
+    Move table mysql to bigtable
+
+    Create table accounts (
+        account_id (...),
+        event_timestamp (...),
+        amount int64,
+        transaction_type
+    ) primary key (account_id, event_timestap)
+
+    How should design a row key for cloud big table
+    ---
+    Set Account_id_Event_timestamp as a key
+
+# 54
+
+    U want to view memory usage of your application deployed on CE
+    ---
+    install stackdriver monitoring agent because default memory metrics is not collected
+
+# 55
+
+
