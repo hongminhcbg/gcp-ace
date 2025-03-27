@@ -124,4 +124,13 @@
 
 # 55
 
+    U have an analytics applications that run hundreds of queries on Bigquery. 
+    U want to find out how much time there queries take to exe
+    ---
+    Use Stackdriver Monitoring to plot query execution times
 
+# 56
+
+    U are designing spanner table users,
+    one user has multiple phones
+    U want to search phones
