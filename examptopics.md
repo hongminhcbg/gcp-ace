@@ -133,4 +133,66 @@
 
     U are designing spanner table users,
     one user has multiple phones
-    U want to search phones
+    U want to search phones?
+    ---
+    create parent table 'users', create child table 'phones' interleave with field customer_id, create index phone_number
+
+# 57
+
+    You are deploying a single website on App Engine that needs to be accessible via the URL http://www.altostrat.com/.
+    What should you do?
+    ---
+    Verify domain ownership with Webmaster Central. Create a DNS CNAME record to point to the App Engine canonical name ghs.googlehosted.com.
+
+# 58
+
+    You are running an application on App Engine that you inherited. You want to find out whether the application is using insecure binaries or is vulnerable to XSS attacks.
+    Which service should you use?
+    ---
+    Cloud security scanner
+
+# 59
+
+    U are working on a social media, user want to upload images.
+    There img will be 2MB
+    ---
+    Change the application to create signed URLs for Cloud Storage. Transfer these signed URLs to the client application to upload images to Cloud Storage.
+
+# 60
+
+    Your application is built as a custom machine image. You have multiple unique deployments of the machine image. Each deployment is a separate managed instance group with its own template. Each deployment requires a unique set of configuration values. You want to provide these unique values to each deployment but use the same custom machine image in all deployments. You want to use out-of-the-box features of Compute Engine.
+    What should you do?
+    ---
+    Place the unique configuration values in the instance template instance metadata.
+
+# 61
+
+    Your app performs well when tested locally, but it runs sinificantly slower after u deploy it to CE instance. U need to diagnose the problem
+    What should u do
+    ---
+    Use Cloud Profiler to determine which functions within the application take the longest amount of time.
+
+    Because cloud profiler is a performance analysis tool that allows u to identify per issue
+
+# 63
+
+    Your company has a dataware house, that keep your app information in BQ
+    The BigQuery data warehouse keeps 2 PBs of user data. Recently, your company expanded your user base to include EU users and needs to comply with these requirements:
+        1. Your company must be able to delete all user account information upon user request
+        2. All EU user data must be stored in a single region specifically for EU users.
+    ---
+    - Create a dataset in the EU region that will keep information about EU users only.
+    - Use DML statements in BigQuery to update/delete user records based on their requests.
+# 64
+
+    Your App Engine standard configuration is as follows:
+    service: production
+    instance_class: B1
+    You want to limit the application to 5 instances.
+    Which code snippet should you include in your configuration?
+    ---
+    basic_scaling: 
+        max_instances: 5
+# 65
+
+    
