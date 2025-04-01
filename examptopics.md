@@ -270,5 +270,27 @@
     ---
     Create a Cloud Function that is triggered by the Cloud Storage bucket. In the Cloud Function, publish a message to the Cloud Pub/Sub topic.
     
+# 76
 
+    Your company stores their source code in a Cloud Source Repositories repository. Your company wants to build and test their code on each source code commit to the repository and requires a solution that is managed and has minimal operations overhead.
+    Which method should they use?
+    ---
+    Use Cloud Build with a trigger configured for each source code commit.
 
+# 77
+
+    You are writing a Compute Engine hosted application in project A that needs to securely authenticate to a Cloud Pub/Sub topic in project B.
+    What should you do?
+    ---
+    Configure the instances with a service account owned by project A. Add the service account as a publisher on the topic.
+
+# 78
+
+    You are developing a corporate tool on Compute Engine for the finance department, which needs to authenticate users and verify that they are in the finance department. All company employees use G Suite.  
+    What should you do?
+    ---
+    Enable Cloud Identity-Aware Proxy on the HTTP(s) load balancer and restrict access to a Google Group containing users in the finance department. Verify the provided JSON Web Token within the application.
+
+# 79
+
+    
