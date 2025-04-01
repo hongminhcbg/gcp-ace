@@ -1,16 +1,20 @@
-I. Set up startup script
+## I. Set up startup script
 
-    https://cloud.google.com/compute/docs/instances/startup-scripts/linux#console
+https://cloud.google.com/compute/docs/instances/startup-scripts/linux#console
         
-    Create Instance -> Advanced options -> Management -> Startup script
-    import the script
+Create Instance -> Advanced options -> Management -> Startup script
+  
+import the script
 
-    #! /bin/bash
-    apt-get update
-    apt-get -y install apache2
-    echo hello. im $(hostname), myip $(hostname -i) > /var/www/html/index.html
-    systemctl restart apache2
-    # note you must wait the script run completely
+```sh
+#! /bin/bash
+apt-get update
+apt-get -y install apache2
+echo hello. im $(hostname), myip $(hostname -i) > /var/www/html/index.html
+systemctl restart apache2
+# note you must wait the script run completely
+```
+
 
 three solution to quick init instance
 
@@ -110,6 +114,10 @@ Onhost maintainance
 # Manage Instance Group (MIG):
 
     - managed as one unit
+    maxSurge: (https://cloud.google.com/compute/docs/instance-groups/rolling-out-updates-to-managed-instance-groups#max_surge)
+    how many instances the MIG can create above targetSize
+    default 1 for zional MIG
+    default 3 for regional MIG
 
 MIG scenarios:
 
@@ -123,4 +131,6 @@ MIG scenarios:
   - Create UMIG and sellect 2VM
 
 
+# [Initialization period](https://cloud.google.com/compute/docs/autoscaler#cool_down_period) 
 
+  - formaly know as cool down period

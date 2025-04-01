@@ -81,3 +81,13 @@ Bucket retendtion:
 Storeage:
 
     - Events(upload, delete) -> Eventarc (native filter) - Cloud func
+
+## Access control
+
+### Uniform    
+
+    - Ensure uniform access to all objects in the bucket by using only bucket-level permissions (IAM). This option becomes permanent after 90 days
+
+### Fine-grained
+
+    - Specify access to individual objects by using object-level permissions (ACLs) in addition to your bucket-level permissions (IAM)

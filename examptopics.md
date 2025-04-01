@@ -195,4 +195,80 @@
         max_instances: 5
 # 65
 
+    Your analytics system executes queries against a BigQuery dataset. The SQL query is executed in batch and passes the contents of a SQL file to the BigQuery
+    CLI. Then it redirects the BigQuery CLI output to another process. However, you are getting a permission error from the BigQuery CLI when the queries are executed.
+    You want to resolve the issue. What should you do?
+    ---
+    Grant the service account BigQuery Data Viewer and BigQuery Job User roles
+
+# 66
+
+    Your app in running on CE and it showing subtained failures for a small number of request
+    U can narrowed the cause down to a single CE instance, but u can't ssh
+    ---
+    enable and check serial port output
+
+# 67
+
+    You configured your CE instance group to scale automatically acroding to overral CPU usage
+    Howrever, your app's response latency increases sharply before the cluster has finished adding up instances
+
+    Which two configuration changes should u make? 
+    ---
+    - Decrease the target CPU usage for the instance group autoscaler.
+
+    - Decrease the cool-down period for instances added to the group. (LINK)[https://cloud.google.com/compute/docs/autoscaler#cool_down_period]
+    - Because decrease the cool-down period for instances added to the group: The cool-down period is the time the autoscaler waits after a new instance is healthy before it collects usage metrics from the instance. A shorter cool-down period allows the autoscaler to react more quickly to changes in load, potentially starting to scale up sooner when there is a sudden increase in traffic.
+
+# 68
+
+    U have an application controlled by a MIG
+    U deploy a new version on application, the number of instances should not increase
+    ---
+    Maxsurge = 0, max unavalable = 1 
+
+# 69
+
+    Your application requires service accounts to be authenticated to GCP products via credentials stored on its host Compute Engine virtual machine instances. You want to distribute these credentials to the host instances as securely as possible.
+    What should you do?
+    ---
+    Use the instance's service account Application Default Credentials to authenticate to the required resources
+
+# 70
+
+    Your application is deployed in a Google Kubernetes Engine (GKE) cluster. You want to expose this application publicly behind a Cloud Load Balancing HTTP(S) load balancer.
+    What should you do?
+    ---
+    Configure a GKE Ingress resource with type: LoadBalancer.
+
+# 71
+
+    Your company is planning to migrate their on-premises Hadoop environment to the cloud. Increasing storage cost and maintenance of data stored in HDFS is a major concern for your company. You also want to make minimal changes to existing data analytics jobs and existing architecture.
+    How should you proceed with the migration?
+    ---
+    Create a Cloud Dataproc cluster on Google Cloud Platform, and then migrate your Hadoop code objects to the new cluster. Move your data to Cloud Storage and leverage the Cloud Dataproc connector to run jobs on that data
+
+# 72
+
+    Your data stored in GCS bucket
+    Fellow developers have reported that data downloaded from GCS is resulting in slow API performance
+    U want to research the issue to provide detailsto GCP team
+    ---
+    gsutil perfdiag: Run performance diagnostic
+
+# 73
+
+    You are using Cloud Build build to promote a Docker image to Development, Test, and Production environments. You need to ensure that the same Docker image is deployed to each of these environments.
+    How should you identify the Docker image in your build?
+    ---
+    Use the digest of the Docker image
+
+# 74
+
+    Your company has created an application that uploads a report to a Cloud Storage bucket. When the report is uploaded to the bucket, you want to publish a message to a Cloud Pub/Sub topic. You want to implement a solution that will take a small amount to effort to implement.
+    What should you do?
+    ---
+    Create a Cloud Function that is triggered by the Cloud Storage bucket. In the Cloud Function, publish a message to the Cloud Pub/Sub topic.
     
+
+
