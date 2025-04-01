@@ -293,4 +293,195 @@
 
 # 79
 
+    Your API backend is running on multiple cloud providers. You want to generate reports for the network latency of your API.
+    Which two steps should you take? (Choose two.)
+    ---
+    - Use Zipkin collector to gather data.  (https://cloud.google.com/trace/docs/zipkin)
+    - Use Stackdriver Trace to generate reports.
+
+# 80 -> 83 case study
+    Business Requirements -
+        HipLocal's investors want to expand their footprint and support the increase in demand they are seeing. Their requirements are:
+        * Expand availability of the application to new regions.
+        * Increase the number of concurrent users that can be supported.
+        * Ensure a consistent experience for users when they travel to different regions.
+        * Obtain user activity metrics to better understand how to monetize their product.
+        * Ensure compliance with regulations in the new regions (for example, GDPR).
+        * Reduce infrastructure management time and cost.
+        * Adopt the Google-recommended practices for cloud computing.
+
+    Technical Requirements -
+        * The application and backend must provide usage metrics and monitoring.
+        * APIs require strong authentication and authorization.
+        * Logging must be increased, and data should be stored in a cloud analytics platform.
+        * Move to serverless architecture to facilitate elastic scaling.
+        * Provide authorized access to internal apps in a secure manner.
+
+# 80
+    Which database should HipLocal use for storing user activity?
+    ---
+    BigQuery because "user activity metrics to better understand how to monetize their product" => for data analysis
+
+# 81
+
+    HipLocal is configuring their access controls.
+    Which firewall configuration should they implement?
+    ---
+    Allow traffic on port 443 for a specific tag.
+    HipLocal could create a tag called "trusted-services" and apply it to their web servers and load balancers. They could then configure their firewall to allow traffic on port 443 only from resources with the "trusted-services" tag. This would prevent unauthorized access to their network while allowing legitimate HTTPS traffic.
+
+    In summary: Option C provides the most secure and flexible approach to configuring HipLocal's firewall, allowing them to control access to their network on port 443 while maintaining security.
+
+# 82
+    HipLocal's data science team wants to analyze user reviews.
+    How should they prepare the data?
+    ---
+    Use the Cloud Data Loss Prevention API for de-identification of the review dataset
+    Data Loss Prevention API: This API is specifically designed for identifying and protecting sensitive data. It can be used to de-identify data, which means replacing sensitive information with non-sensitive substitutes. This is ideal for user reviews, as they might contain personal information like names, addresses, or other details that need to be protected.
+    De-identification: De-identification is the process of removing or replacing sensitive information in a dataset while preserving its usefulness for analysis. This is crucial for HipLocal's data science team, as they need to analyze user reviews without compromising user privacy.
+
+# 83
+
+# 84
+
+    You have an application deployed in production. When a new version is deployed, you want to ensure that all production traffic is routed to the new version of your application. You also want to keep the previous version deployed so that you can revert to it if there is an issue with the new version.
+    Which deployment strategy should you use?
+    ---
+    Blue/green deployment
+    Blue/Green Deployment: This strategy involves running two identical environments: a "blue" environment (the current production version) and a "green" environment (the new version). Traffic is initially routed to the blue environment. Once the green environment is fully deployed and tested, traffic is switched over to the green environment. This allows for a quick rollback to the blue environment if there are issues with the new version.
+
+# 85
+
+    You are porting an existing Apache/MySQL/PHP application stack from a single machine to Google
+    Kubernetes Engine. You need to determine how to containerize the application. Your approach should follow Google-recommended best practices for availability.
+    What should you do?
+    ---
+    Package each component in a separate container. Implement readiness and liveness probes.
+
+# 86
+
+    You are developing an application that will be launched on Compute Engine instances into multiple distinct projects, each corresponding to the environments in your software development process (development, QA, staging, and production). The instances in each project have the same application code but a different configuration. During deployment, each instance should receive the application's configuration based on the environment it serves. You want to minimize the number of steps to configure this flow. What should you do?
+    ---
+    The best answer is D. During each instance launch, configure an instance custom-metadata key named ‘environment’ whose value is the environment the instance serves. Use your deployment tool to query the instance metadata, and configure the application based on the ‘environment’ value.
+
+# 87
+
+    You are developing an ecommerce application that stores customer, order, and inventory data as relational tables inside Cloud Spanner. During a recent load test, you discover that Spanner performance is not scaling linearly as expected. Which of the following is the cause?
+    ---
+    The use of Version 1 UUIDs as primary keys that increase monotonically.
+    correct https://cloud.google.com/spanner/docs/schema-and-data-model#choosing_a_primary_key
+    Version 1 UUIDs and Monotonicity: Version 1 UUIDs are generated based on timestamps and MAC addresses. When used as primary keys, they can lead to performance issues in Cloud Spanner due to their non-monotonic nature. As new UUIDs are generated, they are not guaranteed to be in a sequential order, which can cause fragmentation in the underlying storage and lead to slower queries.
+
+# 88
+
+    You are developing an application that reads credit card data from a Pub/Sub subscription. You have written code and completed unit testing. You need to test the
+    Pub/Sub integration before deploying to Google Cloud. What should you do?
+    ---
+    Create a service to publish messages, and deploy the Pub/Sub emulator. Publish a standard set of testing messages from the publishing service to the emulator.
+
+# 89
+
+    You are designing an application that will subscribe to and receive messages from a single Pub/Sub topic and insert corresponding rows into a database. Your application runs on Linux and leverages preemptible virtual machines to reduce costs. You need to create a shutdown script that will initiate a graceful shutdown.
+    What should you do?
+    ---
+    Write a shutdown script that uses inter-process signals to notify the application process to disconnect from the database.
+
+# 90
+
+    You work for a web development team at a small startup. Your team is developing a Node.js application using Google Cloud services, including Cloud Storage and Cloud Build. The team uses a Git repository for version control. Your manager calls you over the weekend and instructs you to make an emergency update to one of the company's websites, and you're the only developer available. You need to access Google Cloud to make the update, but you don't have your work laptop. You are not allowed to store source code locally on a non-corporate computer. How should you set up your developer environment?
+    ---
+    Use Cloud Shell and the built-in code editor for development. Send your source code updates as pull requests.
+
+# 91
+
+    Your team develops services that run on Google Kubernetes Engine. You need to standardize their log data using Google-recommended practices and make the data more useful in the fewest number of steps. What should you do? (Choose two.)
+    ---
+    Write log output to standard output (stdout) as single-line JSON to be ingested into Cloud Logging as structured logs.
+    Create aggregated exports on application logs to BigQuery to facilitate log analytics.
+
+# 92
+
+    You are designing a deployment technique for your new applications on Google Cloud. As part of your deployment planning, you want to use live traffic to gather performance metrics for both new and existing applications. You need to test against the full production load prior to launch. What should you do?
+    ---
+    Use canary deployment
+
+# 93
+
+    You support an application that uses the Cloud Storage API. You review the logs and discover multiple HTTP 503 Service Unavailable error responses from the
+    API. Your application logs the error and does not take any further action. You want to implement Google-recommended retry logic to improve success rates.
+    Which approach should you take?
+    ---
+    Retry each failure at increasing time intervals up to a maximum number of tries
+
+# 94
+
+    You need to redesign the ingestion of audit events from your authentication service to allow it to handle a large increase in traffic. Currently, the audit service and the authentication system run in the same Compute Engine virtual machine. You plan to use the following Google Cloud tools in the new architecture:
+    ✑ Multiple Compute Engine machines, each running an instance of the authentication service
+    ✑ Multiple Compute Engine machines, each running an instance of the audit service
+    ✑ Pub/Sub to send the events from the authentication services.
+    How should you set up the topics and subscriptions to ensure that the system can handle a large volume of messages and can scale efficiently?
+    ---
+    A is correct. This is the most flexible way to scale, allowing the authentication and audit services to be sized independently according to load.
+    B is incorrect. This will cause messages to be duplicated, one copy per subscription.
+    C is incorrect. This will allow the system to scale, but push subscriptions are less suited to handle large volumes of messages.
+    D is incorrect. This will allow the system to scale, however each audit service will listen to all subscriptions.
+    E. is incorrect. This will allow the system to scale, however it will require each audit service to listen to all subscriptions. Also push subscriptions are less suited to
+
+# 95
+
+    You are developing a marquee stateless web application that will run on Google Cloud. The rate of the incoming user traffic is expected to be unpredictable, with no traffic on some days and large spikes on other days. You need the application to automatically scale up and down, and you need to minimize the cost associated with running the application. What should you do?
+    ---
+    Python + Firestore + Cloud Run:
+    Truly serverless (scales to zero)
+    Pay only for actual usage
+    Handles spikes well
+    Firestore scales automatically
+    Minimal management overhead
+    Lowest cost when no traffic
+
+# 96
+
+    You have written a Cloud Function that accesses other Google Cloud resources. You want to secure the environment using the principle of least privilege. What should you do?
+    ---
+     Create a new service account that has a custom IAM role to access the resources. The deployer is given permission to act as the new service account.
+
+# 97
+
+    You are a SaaS provider deploying dedicated blogging software to customers in your Google Kubernetes Engine (GKE) cluster. You want to configure a secure multi-tenant platform to ensure that each customer has access to only their own blog and can't affect the workloads of other customers. What should you do?
+    ---
+    Deploy a namespace per tenant and use Network Policies in each blog deployment
+
+# 98
+
+    You have decided to migrate your Compute Engine application to Google Kubernetes Engine. You need to build a container image and push it to Artifact Registry using Cloud Build. What should you do? (Choose two.)
+    ---
+    To build a container image and push it to Artifact Registry using Cloud Build, you should:
+
+    Run gcloud builds submit in the directory that contains the application source code. This command will trigger Cloud Build to build the container image and push it to Artifact Registry.
+
+    In the application source directory, create a file named cloudbuild.yaml that contains the instructions for building and pushing the container image. The file should contain the following steps:
+
+    steps:
+    -name: 'grc.io/cloud-builders/docker'
+    args: ['build','-t','grc.io/$PROJECT_ID','app-name','.']
+    -name: 'grc.io/cloud-builders/docker'
+    args: ['push','grc.io/$PROJECT_ID/app-name']
+
+    This file will be used by Cloud Build to build and push the container image.
+# 99
+
+    You are developing an internal application that will allow employees to organize community events within your company. You deployed your application on a single Compute Engine instance. Your company uses Google Workspace (formerly G Suite), and you need to ensure that the company employees can authenticate to the application from anywhere. What should you do?
+    ---
+    Add an HTTP(S) load balancer in front of the instance, and set up Identity-Aware Proxy (IAP). Configure the IAP settings to allow your company domain to access the website.
+
+# 100
+
+    Your development team is using Cloud Build to promote a Node.js application built on App Engine from your staging environment to production. The application relies on several directories of photos stored in a Cloud Storage bucket named webphotos-staging in the staging environment. After the promotion, these photos must be available in a Cloud Storage bucket named webphotos-prod in the production environment. You want to automate the process where possible. What should you do?
+    ---
+    C.Add a build step in the cloudbuild.yaml file before the promotion step with the arguments:
+    -name: gcr.io/cloud-builders/gsutil
+    args: ['cp','-r','gs://webphotos-staging','gs://webphotos-prod']
+    waitFor: ['-']
     
+    You should add a build step in the cloudbuild.yaml file before the promotion step with the arguments shown above. This build step will use the gsutil tool to copy the photos from the webphotos-staging bucket to the webphotos-prod bucket. The -r flag tells gsutil to copy all files in the bucket recursively, and the waitFor parameter tells Cloud Build to wait for this step to complete before continuing with the promotion step.
+
