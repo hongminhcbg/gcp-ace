@@ -485,3 +485,22 @@
     
     You should add a build step in the cloudbuild.yaml file before the promotion step with the arguments shown above. This build step will use the gsutil tool to copy the photos from the webphotos-staging bucket to the webphotos-prod bucket. The -r flag tells gsutil to copy all files in the bucket recursively, and the waitFor parameter tells Cloud Build to wait for this step to complete before continuing with the promotion step.
 
+# 101
+
+    You are developing a web application that will be accessible over both HTTP and HTTPS and will run on Compute Engine instances. On occasion, you will need to SSH from your remote laptop into one of the Compute Engine instances to conduct maintenance on the app. How should you configure the instances while following Google-recommended best practices?
+    ---
+    Set up a backend with Compute Engine web server instances with a private IP address behind an HTTP(S) load balancer. Set up a bastion host with a public IP address and open firewall ports. Connect to the web instances using the bastion host
+
+# 102
+
+    You have a mixture of packaged and internally developed applications hosted on a Compute Engine instance , that is running Linux. These applications write log records as text in local files. You want the logs to be written to Cloud Logging. What should you do?
+    ---
+    Fluentd is for cloud logging agent
+    Collectd is used for Monitoring agents
+
+# 103
+
+    You want to create `fully baked` or `golden` Compute Engine images for your application. You need to bootstrap your application to connect to the appropriate database according to the environment the application is running on (test, staging, production). What should you do?
+    ---
+    When creating the Compute Engine instance, create a metadata item with a key of ג€DATABASEג€ and a value for the appropriate database connection string. In your application, query the metadata server for the ג€DATABASEג€ value, and use the value to connect to the appropriate database.
+    (https://cloud.google.com/compute/docs/metadata/querying-metadata)
