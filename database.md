@@ -2,7 +2,7 @@ I. Storage
 
     oganized and persistent storage
 
-Category:
+# Category:
 
     - big query
     - cloud sql
@@ -10,15 +10,23 @@ Category:
     - datastore
     - filestore
 
-Database type:
+# Database type:
 
     Relational db OLTP -> cloud SQL, cloud spanner 
     relational OLAP db -> columnar storage, for admin and DA
     nosql db -> filestore (serverless transaction docs, mobile + web), bigtable (large db), not severless
     inmem database (cache) -> memstore, access in microsecond
-    OLPT: Online Transactional processing
+    OLTP: Online Transactional processing
+    OLAP: Online Analytics processing -> reporting
+# OLAP
 
-Scenarios:
+    - columnar storage
+
+# OLTP
+
+    - row storage, each row is stored together
+
+# Scenarios:
 
     start up quick -> datastore, filestore, filestore = datastore++ (multi devices)
     nosql, < 10Gi -> cloud datastore
@@ -28,14 +36,24 @@ Scenarios:
     huge volume of IoT devices -> bigtable, nosql
     stream huge time series data (logs) -> bigtable, nosql
 
-Cloud SQL
+# Cloud SQL
 
     - MySQL and SQL server
     - only support read replicas
 
+## Cloud Spanner
+
+    - growth with minimum config
+    - global distributed relational db
+    - management complexity to a minimum
+
 # NoSQL:
 
-Datastore:
+    - trafe-off "strong consistency and SQL features" to "scalability and high performance"
+    - horizontal scale to Petabytes, hundreds nodes and milions TPS 
+
+## Datastore:
+
     - Document base database
     - auto scale and auto partitions
     - recommended upto a few TBs
@@ -43,19 +61,19 @@ Datastore:
     - support transaction + index but not support join + sum + count
     - flexible schema
 
-Filestore: (Datastore++)
+## Filestore: (Datastore++)
     
     - support multi devices 
     - offline mode or data sync across multiple devices - mobile, iot
     - provide client-side lib (web, ios, android)
     - collections <=> tables
 
-Bigtable:
+## Bigtable:
 
     - petabytes and more 
     - not serverless
 
-Bigquery - datawarehouse
+## Bigquery - datawarehouse
 
     - SQL-like query
     - realtime + serverless
@@ -66,15 +84,16 @@ Bigquery - datawarehouse
     - price cost based on 1MB scaned data
     - dry-run (https://cloud.google.com/bigquery/docs/running-queries#dry-run)
 
-Cloud Storage
+## Inmem db (redis + memory store)
+
+    - access in nano seconds
+
+
+## Cloud Storage
 
     - suitable for both structure and unstructure data
 
-Cloud Spanner
 
-    - growth with minimum config
-    - global distributed relational db
-    - management complexity to a minimum
 
 Datastudio 
 
