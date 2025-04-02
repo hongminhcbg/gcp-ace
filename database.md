@@ -149,13 +149,26 @@ https://cloud.google.com/sql/docs/mysql/configure-ip#add
 ```
 
 ### Cloud SQL Auth Proxy (https://cloud.google.com/sql/docs/mysql/connect-instance-auth-proxy)
-```
+
+```yaml
     - provides secure access to your instances with out a need for auth-networks or configuring SSL 
     - secure connection: auto encrypt traffic 
     - easy: The Cloud SQL Auth Proxy uses IAM permissions to control who and what can connect to your Cloud SQL instances. Thus, the Cloud SQL Auth Proxy handles authentication with Cloud SQL, removing the need to provide static IP addresses.
     - auth: auto refresh access token
+    - need install proxy client on the client machine
+    - [APP -> auth proxy client] -> (internet) -> [auth proxy server -> SQL instances]
+    - On GKE, SQL Auth Proxy run as sidecar container
 ```
 
+```sh
+## Install sql proxy client
+wget https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64 -O cloud_sql_proxy
+chmod +x ./cloud_sql_proxy
+./cloud_sql_proxy -instances=glowing-furnace-304608:us-central1:my-first-cloud-sql-instance=tcp:3306
+mysql -u root -p --host 127.0.0.1
+## Run sql proxy client
+
+```
 ## Cloud Spanner
 
     - cloudSQL limitation 30TB
