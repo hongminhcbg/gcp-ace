@@ -504,3 +504,16 @@
     ---
     When creating the Compute Engine instance, create a metadata item with a key of ג€DATABASEג€ and a value for the appropriate database connection string. In your application, query the metadata server for the ג€DATABASEג€ value, and use the value to connect to the appropriate database.
     (https://cloud.google.com/compute/docs/metadata/querying-metadata)
+
+# 104
+
+    You are developing a microservice-based application that will be deployed on a Google Kubernetes Engine cluster. The application needs to read and write to a
+    Spanner database. You want to follow security best practices while minimizing code changes. How should you configure your application to retrieve Spanner credentials?
+    ---
+    Configure the appropriate service accounts, and use Workload Identity to run the pods.
+
+# 105
+
+    You are deploying your application on a Compute Engine instance that communicates with Cloud SQL. You will use Cloud SQL Proxy to allow your application to communicate to the database using the service account associated with the application's instance. You want to follow the Google-recommended best practice of providing minimum access for the role assigned to the service account. What should you do?
+    ---
+    Assign the Cloud SQL Client role.
