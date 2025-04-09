@@ -536,3 +536,47 @@
     You are developing an application that will allow users to read and post comments on news articles. You want to configure your application to store and display user-submitted comments using Firestore. How should you design the schema to support an unknown number of comments and articles?
     ---
     Store each comment in a subcollection of the article.
+
+# 109
+
+# 110
+
+# 111
+
+    You manage an application that runs in a Compute Engine instance. You also have multiple backend services executing in stand-alone Docker containers running in Compute Engine instances. The Compute Engine instances supporting the backend services are scaled by managed instance groups in multiple regions. You want your calling application to be loosely coupled. You need to be able to invoke distinct service implementations that are chosen based on the value of an HTTP header found in the request. Which Google Cloud feature should you use to invoke the backend services?
+    ---
+    Internal HTTP(S) Load Balancing
+
+# 112
+
+    Your team is developing an ecommerce platform for your company. Users will log in to the website and add items to their shopping cart. Users will be automatically logged out after 30 minutes of inactivity. When users log back in, their shopping cart should be saved. How should you store users' session and shopping cart information while following Google-recommended best practices?
+
+# 113
+
+# 114
+
+    You are developing a new application that has the following design requirements:
+    Creation and changes to the application infrastructure are versioned and auditable.
+    The application and deployment infrastructure uses Google-managed services as much as possible.
+    The application runs on a serverless compute platform.
+    How should you design the application's architecture?
+    ---
+    Store the application and infrastructure source code in a Git repository. 2. Use Cloud Build to deploy the application infrastructure with Terraform. 3. Deploy the application to a Cloud Function as a pipeline step.
+
+# 115
+
+    You are creating and running containers across different projects in Google Cloud. The application you are developing needs to access Google Cloud services from within Google Kubernetes Engine (GKE). What should you do?
+    ---
+    Use a Google service account to run the Pod with Workload Identity.
+
+# 116
+
+    You have containerized a legacy application that stores its configuration on an NFS share. You need to deploy this application to Google Kubernetes Engine
+    (GKE) and do not want the application serving traffic until after the configuration has been retrieved. What should you do?
+    ---
+    Create a PersistentVolumeClaim on the GKE cluster. Access the configuration files from the volume, and start the service using an ENTRYPOINT script.
+
+# 117
+
+    Your team is developing a new application using a PostgreSQL database and Cloud Run. You are responsible for ensuring that all traffic is kept private on Google
+    Cloud. You want to use managed services and follow Google-recommended best practices. What should you do?
