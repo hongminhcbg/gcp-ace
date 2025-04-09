@@ -31,3 +31,7 @@ GCP ACE docs
   - Private Google Access
   - Handling sessions with Firestore (https://cloud.google.com/go/getting-started/session-handling-with-firestore)
   - cloud enpoints -> cloud funcs
+  - cloud funcs -> (private gg access) -> cloud SQL 
+  - serverless VPC access connector
+  - IAP and grant at resource level
+  - cloud shell -> terraform -> resource

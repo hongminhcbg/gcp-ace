@@ -580,3 +580,45 @@
 
     Your team is developing a new application using a PostgreSQL database and Cloud Run. You are responsible for ensuring that all traffic is kept private on Google
     Cloud. You want to use managed services and follow Google-recommended best practices. What should you do?
+    ---
+    Enable Cloud SQL and Cloud Run in the same project. 2. Configure a private IP address for Cloud SQL. Enable private services access. 3. Create a Serverless VPC Access connector. 4. Configure Cloud Run to use the connector to connect to Cloud SQL.
+
+# 118
+
+    You are developing an application that will allow clients to download a file from your website for a specific period of time. How should you design the application to complete this task while following Google-recommended best practices?
+    ---
+    Generate and assign a Cloud Storage-signed URL for the file. Make the URL available for the client to download.
+
+# 119
+
+    Your development team has been asked to refactor an existing monolithic application into a set of composable microservices. Which design aspects should you implement for the new application? (Choose two.)
+    ---
+    Create an API contract agreement between the microservice implementation and microservice caller.
+    Ensure that sufficient instances of the microservice are running to accommodate the performance requirements.
+
+# 120
+
+    You deployed a new application to Google Kubernetes Engine and are experiencing some performance degradation. Your logs are being written to Cloud
+    Logging, and you are using a Prometheus sidecar model for capturing metrics. You need to correlate the metrics and data from the logs to troubleshoot the performance issue and send real-time alerts while minimizing costs. What should you do?
+    ---
+    Export the Prometheus metrics and use Cloud Monitoring to view them as external metrics. Configure Cloud Monitoring to create log-based metrics from the logs, and correlate them with the Prometheus data.
+
+# 121
+
+    You have been tasked with planning the migration of your company's application from on-premises to Google Cloud. Your company's monolithic application is an ecommerce website. The application will be migrated to microservices deployed on Google Cloud in stages. The majority of your company's revenue is generated through online sales, so it is important to minimize risk during the migration. You need to prioritize features and select the first functionality to migrate. What should you do?
+    ---
+    Migrate the Product catalog, which has integrations to the frontend and product database. (Least dependentcies)
+
+# 122
+
+    Your team develops services that run on Google Kubernetes Engine. Your team's code is stored in Cloud Source Repositories. You need to quickly identify bugs in the code before it is deployed to production. You want to invest in automation to improve developer feedback and make the process as efficient as possible.
+    What should you do?
+    ---
+    Use Cloud Build to automate building container images from code based on Git tags.
+
+# 123
+    
+    Your team is developing an application in Google Cloud that executes with user identities maintained by Cloud Identity. Each of your application's users will have an associated Pub/Sub topic to which messages are published, and a Pub/Sub subscription where the same user will retrieve published messages. You need to ensure that only authorized users can publish and subscribe to their own specific Pub/Sub topic and subscription. What should you do?
+    ---
+    Granting IAM at resource level is enough.
+    If project level permission is given then user will be having publisher and subscriber roles for all the pub-sub topics created within the project. So this should be avoided according to the question asked
