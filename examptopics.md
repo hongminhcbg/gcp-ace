@@ -661,4 +661,9 @@
 
 # 130
 
-    
+    You have an HTTP Cloud Function that is called via POST. Each submission's request body has a flat, unnested JSON structure containing numeric and text data. After the Cloud Function completes, the collected data should be immediately available for ongoing and complex analytics by many users in parallel. How should you persist the submissions?
+    ---
+    ransform the POST request's JSON data, and stream it into BigQuery.
+
+# 131
+
