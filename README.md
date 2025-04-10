@@ -33,5 +33,6 @@ GCP ACE docs
   - cloud enpoints -> cloud funcs
   - cloud funcs -> (private gg access) -> cloud SQL 
   - serverless VPC access connector
-  - IAP and grant at resource level
+  - IAP and grant at resource level, read and verify token
   - cloud shell -> terraform -> resource
+  - custom SA, compute engine -> trigger cloud func

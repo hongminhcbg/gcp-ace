@@ -622,3 +622,43 @@
     ---
     Granting IAM at resource level is enough.
     If project level permission is given then user will be having publisher and subscriber roles for all the pub-sub topics created within the project. So this should be avoided according to the question asked
+
+# 124
+
+# 125
+
+    You are developing an ecommerce web application that uses App Engine standard environment and Memorystore for Redis. When a user logs into the app, the application caches the user's information (e.g., session, name, address, preferences), which is stored for quick retrieval during checkout.
+    While testing your application in a browser, you get a 502 Bad Gateway error. You have determined that the application is not connecting to Memorystore. What is the reason for this error?
+    ---
+    You configured your Serverless VPC Access connector in a different region than your App Engine instance.
+
+# 126
+
+    Your team develops services that run on Google Cloud. You need to build a data processing service and will use Cloud Functions. The data to be processed by the function is sensitive. You need to ensure that invocations can only happen from authorized services and follow Google-recommended best practices for securing functions. What should you do?
+    ---
+    Create a service account with the Cloud Functions Invoker role. Use that service account to invoke the function.
+
+# 127
+
+    You are deploying your applications on Compute Engine. One of your Compute Engine instances failed to launch. What should you do? (Choose two.)
+    ---
+    Determine whether your file system is corrupted.
+    Check whether your instance boot disk is completely full.
+
+# 128
+
+    Your web application is deployed to the corporate intranet. You need to migrate the web application to Google Cloud. The web application must be available only to company employees and accessible to employees as they travel. You need to ensure the security and accessibility of the web application while minimizing application changes. What should you do?
+    ---
+    Configure Identity-Aware Proxy to allow employees to access the application through its public IP address.
+
+# 129
+
+    You have an application that uses an HTTP Cloud Function to process user activity from both desktop browser and mobile application clients. This function will serve as the endpoint for all metric submissions using HTTP POST.
+    Due to legacy restrictions, the function must be mapped to a domain that is separate from the domain requested by users on web or mobile sessions. The domain for the Cloud Function is https://fn.example.com. Desktop and mobile clients use the domain https://www.example.com. You need to add a header to the function's
+    HTTP response so that only those browser and mobile sessions can submit metrics to the Cloud Function. Which response header should you add?
+    ---
+    Access-Control-Allow-origin: https://www.example.com # NOT https://*.example.com, www is determine for '*'
+
+# 130
+
+    
