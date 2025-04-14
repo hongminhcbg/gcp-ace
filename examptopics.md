@@ -667,3 +667,122 @@
 
 # 131
 
+    Your security team is auditing all deployed applications running in Google Kubernetes Engine. After completing the audit, your team discovers that some of the applications send traffic within the cluster in clear text. You need to ensure that all application traffic is encrypted as quickly as possible while minimizing changes to your applications and maintaining support from Google. What should you do?
+    ---
+    Install Istio, enable proxy injection on your application namespace, and then enable mTLS.
+
+# 132
+
+    You migrated some of your applications to Google Cloud. You are using a legacy monitoring platform deployed on-premises for both on-premises and cloud- deployed applications. You discover that your notification system is responding slowly to time-critical problems in the cloud applications. What should you do?
+    ---
+    Use Cloud Logging and Cloud Monitoring to capture logs, monitor, and send alerts. Send them to your existing platform.
+ 
+# 133
+
+    You recently deployed your application in Google Kubernetes Engine, and now need to release a new version of your application. You need the ability to instantly roll back to the previous version in case there are issues with the new version. Which deployment model should you use?
+    ---
+    Perform a blue/green deployment, and test your new application after the deployment is. complete.
+# 134
+
+# 135
+
+    You manage an ecommerce application that processes purchases from customers who can subsequently cancel or change those purchases. You discover that order volumes are highly variable and the backend order-processing system can only process one request at a time. You want to ensure seamless performance for customers regardless of usage volume. It is crucial that customers' order update requests are performed in the sequence in which they were generated. What should you do?
+    ---
+    Use a Pub/Sub subscriber in pull mode and use a data store to manage ordering.
+
+# 136
+
+    Your company needs a database solution that stores customer purchase history and meets the following requirements:
+    ✑ Customers can query their purchase immediately after submission. 
+    ✑ Purchases can be sorted on a variety of fields.
+    ✑ Distinct record formats can be stored at the same time.
+    Which storage option satisfies these requirements?
+    ---
+    Firestore in Native mode
+    
+    Firestore is for storing semi structured data. It is optimized for high reads and low writes. Since each document can store different collection types, ( MONGO DB ), fire store is suitable for the above requirements.
+
+# 137
+
+    You recently developed a new service on Cloud Run. The new service authenticates using a custom service and then writes transactional information to a Cloud
+    Spanner database. You need to verify that your application can support up to 5,000 read and 1,000 write transactions per second while identifying any bottlenecks that occur. Your test infrastructure must be able to autoscale. What should you do?
+    ---
+    Create a Google Kubernetes Engine cluster running the Locust or JMeter images to dynamically generate load tests. Analyze the results using Cloud Trace.
+
+# 138
+
+    You are using Cloud Build for your CI/CD pipeline to complete several tasks, including copying certain files to Compute Engine virtual machines. Your pipeline requires a flat file that is generated in one builder in the pipeline to be accessible by subsequent builders in the same pipeline. How should you store the file so that all the builders in the pipeline can access it?
+    ---
+    Output the file contents to a file in /workspace. Read from the same /workspace file in the subsequent build step.
+
+# 139
+
+    Your company’s development teams want to use various open source operating systems in their Docker builds. When images are created in published containers in your company’s environment, you need to scan them for Common Vulnerabilities and Exposures (CVEs). The scanning process must not impact software development agility. You want to use managed services where possible. What should you do?
+    ---
+     Enable the Vulnerability scanning setting in the Container Registry
+
+# 140
+
+# 141
+    You are building a CI/CD pipeline that consists of a version control system, Cloud Build, and Container Registry. Each time a new tag is pushed to the repository, a Cloud Build job is triggered, which runs unit tests on the new code builds a new Docker container image, and pushes it into Container Registry. The last step of your pipeline should deploy the new container to your production Google Kubernetes Engine (GKE) cluster. You need to select a tool and deployment strategy that meets the following requirements:
+    • Zero downtime is incurred
+    • Testing is fully automated
+    • Allows for testing before being rolled out to users
+    • Can quickly rollback if needed
+
+    What should you do?
+    ---
+    Trigger another Cloud Build job that uses the Kubernetes CLI tools to deploy your new container to your GKE cluster, where you can perform a shadow test.
+
+# 142
+
+# 143
+
+    You need to deploy a new European version of a website hosted on Google Kubernetes Engine. The current and new websites must be accessed via the same HTTP(S) load balancer's external IP address, but have different domain names. What should you do?
+    ---
+    Modify the existing Ingress resource with a host rule matching the new domain
+
+# 144
+
+    You are developing a single-player mobile game backend that has unpredictable traffic patterns as users interact with the game throughout the day and night. You want to optimize costs by ensuring that you have enough resources to handle requests, but minimize over-provisioning. You also want the system to handle traffic spikes efficiently. Which compute platform should you use?
+    ---
+    Cloud Run
+
+# 145
+
+    The development teams in your company want to manage resources from their local environments. You have been asked to enable developer access to each team’s Google Cloud projects. You want to maximize efficiency while following Google-recommended best practices. What should you do?
+    ---
+    Create groups, add the users to their groups, assign the relevant roles to the groups, and then provide the users with each relevant Project ID
+
+    Project ID more friendly than project number
+
+# 146
+
+    Your company’s product team has a new requirement based on customer demand to autoscale your stateless and distributed service running in a Google Kubernetes Engine (GKE) duster. You want to find a solution that minimizes changes because this feature will go live in two weeks. What should you do?
+    ---
+    Deploy a Horizontal Pod Autoscaler, and scale based on the CPU toad
+
+# 147
+
+    Your application is composed of a set of loosely coupled services orchestrated by code executed on Compute Engine. You want your application to easily bring up new Compute Engine instances that find and use a specific version of a service. How should this be configured?
+    ---
+     Define your service endpoint information as metadata that is retrieved at runtime and used to connect to the desired service.
+
+# 148
+
+    You are developing a microservice-based application that will run on Google Kubernetes Engine (GKE). Some of the services need to access different Google Cloud APIs. How should you set up authentication of these services in the cluster following Google-recommended best practices? (Choose two.)
+    ---
+     Enable Workload Identity in the cluster via the gcloud command-line tool.
+    Use gcloud to bind the Kubernetes service account and the Google service account using roles/iam.workloadIdentity.
+
+# 149
+
+    Your development team has been tasked with maintaining a .NET legacy application. The application incurs occasional changes and was recently updated. Your goal is to ensure that the application provides consistent results while moving through the CI/CD pipeline from environment to environment. You want to minimize the cost of deployment while making sure that external factors and dependencies between hosting environments are not problematic. Containers are not yet approved in your organization. What should you do?
+    ---
+    Use Cloud Build to deploy the application as a new Compute Engine image for each build. Use this image in each environment
+
+# 150
+
+    The new version of your containerized application has been tested and is ready to deploy to production on Google Kubernetes Engine. You were not able to fully load-test the new version in pre-production environments, and you need to make sure that it does not have performance problems once deployed. Your deployment must be automated. What should you do?
+    ---
+    Deploy the application via a continuous delivery pipeline using canary deployments. Use Cloud Monitoring to look for performance issues. and ramp up traffic as the metrics support it.

@@ -36,3 +36,4 @@ GCP ACE docs
   - IAP and grant at resource level, read and verify token
   - cloud shell -> terraform -> resource
   - custom SA, compute engine -> trigger cloud func
+  - node pools (runner, k8s)
