@@ -786,3 +786,109 @@
     The new version of your containerized application has been tested and is ready to deploy to production on Google Kubernetes Engine. You were not able to fully load-test the new version in pre-production environments, and you need to make sure that it does not have performance problems once deployed. Your deployment must be automated. What should you do?
     ---
     Deploy the application via a continuous delivery pipeline using canary deployments. Use Cloud Monitoring to look for performance issues. and ramp up traffic as the metrics support it.
+
+# 151
+
+# 152
+
+    You are a developer working on an internal application for payroll processing. You are building a component of the application that allows an employee to submit a timesheet, which then initiates several steps:
+
+    • An email is sent to the employee and manager, notifying them that the timesheet was submitted.
+    • A timesheet is sent to payroll processing for the vendor's API.
+    • A timesheet is sent to the data warehouse for headcount planning.
+
+    These steps are not dependent on each other and can be completed in any order. New steps are being considered and will be implemented by different development teams. Each development team will implement the error handling specific to their step. What should you do?
+    ---
+    Create a Pub/Sub topic for timesheet submissions. Create a subscription for each downstream development team to subscribe to the topic.
+
+# 153
+
+    You are designing an application that uses a microservices architecture. You are planning to deploy the application in the cloud and on-premises. You want to make sure the application can scale up on demand and also use managed services as much as possible. What should you do?
+    ---
+    B. Create a GKE cluster in each environment with Anthos, and use Cloud Run for Anthos to deploy your application to each cluster.
+
+    Using Anthos to manage Kubernetes clusters in both cloud and on-premises environments allows for consistency in deployment and management across both environments. Deploying the application using Cloud Run for Anthos allows for easy scaling on demand and use of managed services such as Cloud SQL and Memorystore. Additionally, Cloud Run for Anthos can be deployed to both GKE clusters and on-premises Kubernetes clusters, allowing for a consistent deployment experience across environments.
+
+# 154
+
+    You want to migrate an on-premises container running in Knative to Google Cloud. You need to make sure that the migration doesn't affect your application's deployment strategy, and you want to use a fully managed service. Which Google Cloud service should you use to deploy your container?
+    ---
+    # knative: open source to build serverless app
+    Cloud Run, not app engine because app-engine supported some specific lang
+
+# 155
+
+    Pub/Sub -> Data flow -> bigquery
+    Data ingest: pub/sub
+    pipeline: Dataflow
+    transaction: filestore
+    Analytics: BQ
+
+# 156
+
+    Your company just experienced a Google Kubernetes Engine (GKE) API outage due to a zone failure. You want to deploy a highly available GKE architecture that minimizes service interruption to users in the event of a future zone failure. What should you do?
+    ---
+    Regional Clusters
+    - Span multiple zones within a region.
+    - May not guarantee that all zones within the region are always available.
+    - Can provide some level of redundancy, but might not be as resilient as multi-zone clusters in the event of a zone failure.
+
+    Multi-Zone Clusters
+    - Distribute your workload across multiple zones within a region.
+    - Ensure that your application remains highly available and resilient to zone failures.
+    - Automatically move your workloads to the remaining healthy zones if one zone fails.
+    - Provide the highest level of availability among the GKE deployment options.
+
+    In summary, while both regional and multi-zone clusters can provide redundancy, multi-zone clusters offer a higher level of availability by distributing your workload across multiple zones, ensuring minimal service disruption in the event of a zone failure.
+
+# 157
+
+    Your team develops services that run on Google Cloud. You want to process messages sent to a Pub/Sub topic, and then store them. Each message must be processed exactly once to avoid duplication of data and any data conflicts. You need to use the cheapest and most simple solution. What should you do?
+    ---
+    Process the messages with a Dataflow streaming pipeline using Apache Beam's PubSubIO package, and write the output to storage.
+    PubSubIO default fileter by msg_id
+
+# 158
+    
+    You are running a containerized application on Google Kubernetes Engine. Your container images are stored in Container Registry. Your team uses CI/CD practices. You need to prevent the deployment of containers with known critical vulnerabilities. What should you do?
+    ---
+    Enable the Container Scanning API to perform vulnerability scanning
+    • Programmatically review vulnerability reporting through the Container Scanning API, and provide an attestation that the container is free of known critical vulnerabilities
+    • Use Binary Authorization to implement a policy that forces the attestation to be provided before the container is deployed
+
+# 159
+
+    You have an on-premises application that authenticates to the Cloud Storage API using a user-managed service account with a user-managed key. The application connects to Cloud Storage using Private Google Access over a Dedicated Interconnect link. You discover that requests from the application to access objects in the Cloud Storage bucket are failing with a 403 Permission Denied error code. What is the likely cause of this issue?
+    ---
+    The service account key has been rotated but not updated on the application server.
+
+# 160
+
+    You are using the Cloud Client Library to upload an image in your application to Cloud Storage. Users of the application report that occasionally the upload does not complete and the client library reports an HTTP 504 Gateway Timeout error. You want to make the application more resilient to errors. What changes to the application should you make?
+    ---
+    Write an exponential backoff process around the client library call.
+
+# 161
+
+    You are building a mobile application that will store hierarchical data structures in a database. The application will enable users working offline to sync changes when they are back online. A backend service will enrich the data in the database using a service account. The application is expected to be very popular and needs to scale seamlessly and securely. Which database and IAM role should you use?
+    ---
+    Use Firestore in Native mode and assign the roles/datastore.user role to the service account. 
+
+# 162
+
+    Your application is deployed on hundreds of Compute Engine instances in a managed instance group (MIG) in multiple zones. You need to deploy a new instance template to fix a critical vulnerability immediately but must avoid impact to your service. What setting should be made to the MIG after updating the instance template?
+    ---
+    Set the Minimum Wait time to 0 seconds.
+    https://cloud.google.com/compute/docs/instance-groups/rolling-out-updates-to-managed-instance-groups#minimum_wait_time
+
+# 163
+
+    You made a typo in a low-level Linux configuration file that prevents your Compute Engine instance from booting to a normal run level. You just created the Compute Engine instance today and have done no other maintenance on it, other than tweaking files. How should you correct this error?
+    ---
+    Configure and log in to the Compute Engine instance through the serial port, and change the file
+
+# 164
+
+    You are developing an application that needs to store files belonging to users in Cloud Storage. You want each user to have their own subdirectory in Cloud Storage. When a new user is created, the corresponding empty subdirectory should also be created. What should you do?
+    ---
+    
