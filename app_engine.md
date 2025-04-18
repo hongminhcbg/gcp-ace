@@ -36,7 +36,7 @@ root:
     svc1:
         - src
         - service1.yaml
-        - app.yaml
+        - app.yaml 
     svc2:
         - src
         - service2.yaml
