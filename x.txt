@@ -37,3 +37,19 @@ Who create VMs in GCP? => Admin Activity Logs
 - can't upload image directly to GCS
 - Who is accessed GCS data => turn on data access logs, query log
 - oganization level => fail
+
+CAS(a *p, oldval, newVal) bool:
+    if *a != oldVal:
+        return false
+    
+    *a = newVal
+    return true
+
+Incre(a *p) int:
+    while 1:
+        org = *a
+        if cas(a, org, org + 1):
+            return org + 1
+
+
+)
