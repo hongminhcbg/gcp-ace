@@ -889,6 +889,342 @@
 
 # 164
 
-    You are developing an application that needs to store files belonging to users in Cloud Storage. You want each user to have their own subdirectory in Cloud Storage. When a new user is created, the corresponding empty subdirectory should also be created. What should you do?
+# 165
+
+    Your company’s corporate policy states that there must be a copyright comment at the very beginning of all source files. You want to write a custom step in Cloud Build that is triggered by each source commit. You need the trigger to validate that the source contains a copyright and add one for subsequent steps if not there. What should you do?
     ---
+    Build a new Docker container that examines the files in /workspace and then checks and adds a copyright for each source file. Changed files are explicitly committed back to the source repository.
+
+# 166
+
+# 167 case study
+
+## company
+
+    Company Overview -
+    HipLocal is a community application designed to facilitate communication between people in close proximity. It is used for event planning and organizing sporting events, and for businesses to connect with their local communities. HipLocal launched recently in a few neighborhoods in Dallas and is rapidly growing into a global phenomenon. Its unique style of hyper-local community communication and business outreach is in demand around the world.
+
+
+    Executive Statement -
+    We are the number one local community app; it's time to take our local community services global. Our venture capital investors want to see rapid growth and the same great experience for new local and virtual communities that come online, whether their members are 10 or 10000 miles away from each other.
+
+
+    Solution Concept -
+    HipLocal wants to expand their existing service, with updated functionality, in new regions to better serve their global customers. They want to hire and train a new team to support these regions in their time zones. They will need to ensure that the application scales smoothly and provides clear uptime data, and that they analyze and respond to any issues that occur.
+
+
+    Existing Technical Environment -
+    HipLocal's environment is a mix of on-premises hardware and infrastructure running in Google Cloud Platform. The HipLocal team understands their application well, but has limited experience in global scale applications. Their existing technical environment is as follows:
+    • Existing APIs run on Compute Engine virtual machine instances hosted in GCP.
+    • State is stored in a single instance MySQL database in GCP.
+    • Release cycles include development freezes to allow for QA testing.
+    • The application has no logging.
+    • Applications are manually deployed by infrastructure engineers during periods of slow traffic on weekday evenings.
+    • There are basic indicators of uptime; alerts are frequently fired when the APIs are unresponsive.
+
+
+    Business Requirements -
+    HipLocal's investors want to expand their footprint and support the increase in demand they are seeing. Their requirements are:
+    • Expand availability of the application to new regions.
+    • Support 10x as many concurrent users.
+    • Ensure a consistent experience for users when they travel to different regions.
+    • Obtain user activity metrics to better understand how to monetize their product.
+    • Ensure compliance with regulations in the new regions (for example, GDPR).
+    • Reduce infrastructure management time and cost.
+    • Adopt the Google-recommended practices for cloud computing.
+    ○ Develop standardized workflows and processes around application lifecycle management.
+    ○ Define service level indicators (SLIs) and service level objectives (SLOs).
+
+
+    Technical Requirements -
+    • Provide secure communications between the on-premises data center and cloud-hosted applications and infrastructure.
+    • The application must provide usage metrics and monitoring.
+    • APIs require authentication and authorization.
+    • Implement faster and more accurate validation of new features.
+    • Logging and performance metrics must provide actionable information to be able to provide debugging information and alerts.
+    • Must scale to meet user demand.
+
+
+    For this question, refer to the HipLocal case study.
+
+# 167
+
+    How should HipLocal redesign their architecture to ensure that the application scales to support a large increase in users?
+    ---
+    Use Memorystore to store session information and CloudSQL to store state information. Use a Google Cloud-managed load balancer to distribute the load between instances. Use managed instance groups for scaling.
+
+# 168
+
+# 169
+    HipLocal's application uses Cloud Client Libraries to interact with Google Cloud. HipLocal needs to configure authentication and authorization in the Cloud Client Libraries to implement least privileged access for the application. What should they do?
+    ---
+
+    C: Create a service account for the application. Export and deploy the private key for the application. Use the service account to interact with Google Cloud.
+    D: Create a service account for the application and for each Google Cloud API used by the application. Export and deploy the private keys used by the application. Use the service account with one Google Cloud API to interact with Google Cloud. => very complex
+
+# 170
     
+    You are in the final stage of migrating an on-premises data center to Google Cloud. You are quickly approaching your deadline, and discover that a web API is running on a server slated for decommissioning. You need to recommend a solution to modernize this API while migrating to Google Cloud. The modernized web API must meet the following requirements:
+
+    • Autoscales during high traffic periods at the end of each month
+    • Written in Python 3.x
+    • Developers must be able to rapidly deploy new versions in response to frequent code changes
+
+    You want to minimize cost, effort, and operational overhead of this migration. What should you do?
+    ---
+    Modernize and deploy the code on App Engine standard environment.
+
+# 171
+
+    You are in the final stage of migrating an on-premises data center to Google Cloud. You are quickly approaching your deadline, and discover that a web API is running on a server slated for decommissioning. You need to recommend a solution to modernize this API while migrating to Google Cloud. The modernized web API must meet the following requirements:
+
+    • Autoscales during high traffic periods at the end of each month
+    • Written in Python 3.x
+    • Developers must be able to rapidly deploy new versions in response to frequent code changes
+
+    You want to minimize cost, effort, and operational overhead of this migration. What should you do?
+    ---
+    kube secret
+
+# 172
+
+    You manage your company's ecommerce platform's payment system, which runs on Google Cloud. Your company must retain user logs for 1 year for internal auditing purposes and for 3 years to meet compliance requirements. You need to store new user logs on Google Cloud to minimize on-premises storage usage and ensure that they are easily searchable. You want to minimize effort while ensuring that the logs are stored correctly. What should you do?
+    ---
+    Store the logs in Cloud Logging as custom logs with a custom retention period.
+
+# 173
+
+    Your company has a new security initiative that requires all data stored in Google Cloud to be encrypted by customer-managed encryption keys. You plan to use Cloud Key Management Service (KMS) to configure access to the keys. You need to follow the "separation of duties" principle and Google-recommended best practices. What should you do? (Choose two.)
+    ---
+    Provision Cloud KMS in its own project. 
+    Do not assign an owner to the Cloud KMS project.
+    https://cloud.google.com/kms/docs/separation-of-duties#using_separate_project
+    Instead, to allow for a separation of duties, you could run Cloud KMS in its own project, for example your-key-project. Then, depending on the strictness of your separation requirements, you could either:
+    - (recommended) Create your-key-project without an owner at the project level, and designate an Organization Admin granted at the organization-level. Unlike an owner, an Organization Admin can't manage or use keys directly. They are restricted to setting IAM policies, which restrict who can manage and use keys. Using an organization-level node, you can further restrict permissions for projects in your organization.
+
+# 174
+
+# 175
+
+    Your organization has recently begun an initiative to replatform their legacy applications onto Google Kubernetes Engine. You need to decompose a monolithic application into microservices. Multiple instances have read and write access to a configuration file, which is stored on a shared file system. You want to minimize the effort required to manage this transition, and you want to avoid rewriting the application code. What should you do?
+    ---
+    A. Create a new Cloud Storage bucket, and mount it via FUSE in the container.
+    B. Create a new persistent disk, and mount the volume as a shared PersistentVolume.
+    C. Create a new Filestore instance, and mount the volume as an NFS PersistentVolume.
+    D. Create a new ConfigMap and volumeMount to store the contents of the configuration file.    
+    ---
+    Create a new Filestore instance, and mount the volume as an NFS PersistentVolume.
+    A is incorrect, because Cloud Storage FUSE does not support concurrency and file locking.
+    B is incorrect, because a persistent disk PersistentVolume is not read-write-many. It can only be read-write once or read-many.
+    C is correct, because it’s the only managed, supported read-write-many storage option available for file-system access in Google Kubernetes Engine.
+    D is incorrect, because the ConfigMap cannot be written to from the Pods.
+
+    https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
+    https://cloud.google.com/filestore/docs/accessing-fileshares
+    https://cloud.google.com/storage/docs/gcs-fuse
+
+# 176
+
+# 177
+
+    You manage a microservices application on Google Kubernetes Engine (GKE) using Istio. You secure the communication channels between your microservices by implementing an Istio AuthorizationPolicy, a Kubernetes NetworkPolicy, and mTLS on your GKE cluster. You discover that HTTP requests between two Pods to specific URLs fail, while other requests to other URLs succeed. What is the cause of the connection issue?
+    ---
+     The Authorization Policy of your cluster is blocking HTTP requests for specific paths within your application.
+
+# 178
+
+    You recently migrated an on-premises monolithic application to a microservices application on Google Kubernetes Engine (GKE). The application has dependencies on backend services on-premises, including a CRM system and a MySQL database that contains personally identifiable information (PII). The backend services must remain on-premises to meet regulatory requirements.
+
+    You established a Cloud VPN connection between your on-premises data center and Google Cloud. You notice that some requests from your microservices application on GKE to the backend services are failing due to latency issues caused by fluctuating bandwidth, which is causing the application to crash. How should you address the latency issues?
+    ---
+    Increase the number of Cloud VPN tunnels for the connection between Google Cloud and the on-premises services
+
+# 179
+
+    Cloud debugger is decrecated
+
+# 180
+
+    You are designing an application that consists of several microservices. Each microservice has its own RESTful API and will be deployed as a separate Kubernetes Service. You want to ensure that the consumers of these APIs aren't impacted when there is a change to your API, and also ensure that third-party systems aren't interrupted when new versions of the API are released. How should you configure the connection to the application following Google-recommended best practices?
+    ---
+    Use an Ingress that uses the API's URL to route requests to the appropriate backend.
+    Selected Answer: A
+    https://cloud.google.com/kubernetes-engine/docs/concepts/ingress#deprecated_annotation
+    https://cloud.google.com/kubernetes-engine/docs/concepts/ingress#features_of_https_load_balancing
+
+# 181
+    
+    Your team is building an application for a financial institution. The application's frontend runs on Compute Engine, and the data resides in Cloud SQL and one Cloud Storage bucket. The application will collect data containing PII, which will be stored in the Cloud SQL database and the Cloud Storage bucket. You need to secure the PII data. What should you do?
+    ---
+    C. 1. Configure a private IP address for Cloud SQL
+    2. Use VPC-SC to create a service perimeter
+    3. Add the Cloud SQL database and the Cloud Storage bucket to the same service perimeter
+
+# 182
+
+    You are designing a chat room application that will host multiple rooms and retain the message history for each room. You have selected Firestore as your database. How should you represent the data in Firestore?
+    ---
+    Create a collection for the rooms. For each room, create a document that contains a collection for documents, each of which contains a message.
+
+# 183
+
+    You are developing an application that will handle requests from end users. You need to secure a Cloud Function called by the application to allow authorized end users to authenticate to the function via the application while restricting access to unauthorized users. You will integrate Google Sign-In as part of the solution and want to follow Google-recommended best practices. What should you do?
+    ---
+    Deploy from a source code repository and grant users the roles/cloudfunctions.invoker role
+
+# 184
+
+# 185
+
+    You are building a highly available and globally accessible application that will serve static content to users. You need to configure the storage and serving components. You want to minimize management overhead and latency while maximizing reliability for users. What should you do?
+    ---
+    D. 
+    1. Create a Standard storage class, multi-regional Cloud Storage bucket. Put the static content in the bucket.
+    2. Reserve an external IP address, and create an external HTTP(S) load balancer.
+    3. Enable Cloud CDN, and send traffic to your backend bucket.
+
+# 186 Case study
+
+        Company Overview -
+    HipLocal is a community application designed to facilitate communication between people in close proximity. It is used for event planning and organizing sporting events, and for businesses to connect with their local communities. HipLocal launched recently in a few neighborhoods in Dallas and is rapidly growing into a global phenomenon. Its unique style of hyper-local community communication and business outreach is in demand around the world.
+
+
+    Executive Statement -
+    We are the number one local community app; it's time to take our local community services global. Our venture capital investors want to see rapid growth and the same great experience for new local and virtual communities that come online, whether their members are 10 or 10000 miles away from each other.
+
+
+    Solution Concept -
+    HipLocal wants to expand their existing service, with updated functionality, in new regions to better serve their global customers. They want to hire and train a new team to support these regions in their time zones. They will need to ensure that the application scales smoothly and provides clear uptime data, and that they analyze and respond to any issues that occur.
+
+
+    Existing Technical Environment -
+    HipLocal's environment is a mix of on-premises hardware and infrastructure running in Google Cloud Platform. The HipLocal team understands their application well, but has limited experience in global scale applications. Their existing technical environment is as follows:
+    • Existing APIs run on Compute Engine virtual machine instances hosted in GCP.
+    • State is stored in a single instance MySQL database in GCP.
+    • Release cycles include development freezes to allow for QA testing.
+    • The application has no logging.
+    • Applications are manually deployed by infrastructure engineers during periods of slow traffic on weekday evenings.
+    • There are basic indicators of uptime; alerts are frequently fired when the APIs are unresponsive.
+
+
+    Business Requirements -
+    HipLocal's investors want to expand their footprint and support the increase in demand they are seeing. Their requirements are:
+    • Expand availability of the application to new regions.
+    • Support 10x as many concurrent users.
+    • Ensure a consistent experience for users when they travel to different regions.
+    • Obtain user activity metrics to better understand how to monetize their product.
+    • Ensure compliance with regulations in the new regions (for example, GDPR).
+    • Reduce infrastructure management time and cost.
+    • Adopt the Google-recommended practices for cloud computing.
+    ○ Develop standardized workflows and processes around application lifecycle management.
+    ○ Define service level indicators (SLIs) and service level objectives (SLOs).
+
+
+    Technical Requirements -
+    • Provide secure communications between the on-premises data center and cloud-hosted applications and infrastructure.
+    • The application must provide usage metrics and monitoring.
+    • APIs require authentication and authorization.
+    • Implement faster and more accurate validation of new features.
+    • Logging and performance metrics must provide actionable information to be able to provide debugging information and alerts.
+    • Must scale to meet user demand.
+
+
+    For this question refer to the HipLocal case study.
+
+# 186
+
+    HipLocal wants to reduce the latency of their services for users in global locations. They have created read replicas of their database in locations where their users reside and configured their service to read traffic using those replicas. How should they further reduce latency for all database interactions with the least amount of effort?
+    ---
+    Migrate the database to Cloud Spanner and use it to serve all global user traffic
+
+# 187
+
+    Define service level indicators (SLIs) and service level objectives (SLOs).
+    Which Google Cloud product addresses HipLocal’s business requirements for service level indicators and objectives?
+    ---
+    Cloud Monitoring
+
+# 188
+
+    A recent security audit discovers that HipLocal’s database credentials for their Compute Engine-hosted MySQL databases are stored in plain text on persistent disks. HipLocal needs to reduce the risk of these credentials being stolen. What should they do?
+    ---
+    Grant the roles/secretmanager.secretAccessor role to the Compute Engine service account. Store and access the database credentials with the Secret Manager API
+
+# 189
+
+    HipLocal is expanding into new locations. They must capture additional data each time the application is launched in a new European country. This is causing delays in the development process due to constant schema changes and a lack of environments for conducting testing on the application changes. How should they resolve the issue while meeting the business requirements?
+    ---
+    Migrate data to Firestore in Native mode and set up instances in Europe and North America. Instruct the development teams to use the Cloud SDK to emulate a local Firestore in Native mode development environment. 
+
+# 190
+
+    You are writing from a Go application to a Cloud Spanner database. You want to optimize your application’s performance using Google-recommended best practices. What should you do?
+    ---
+    Write to Cloud Spanner using Cloud Client Libraries
+
+# 191
+
+    You have an application deployed in Google Kubernetes Engine (GKE). You need to update the application to make authorized requests to Google Cloud managed services. You want this to be a one-time setup, and you need to follow security best practices of auto-rotating your security keys and storing them in an encrypted store. You already created a service account with appropriate access to the Google Cloud service. What should you do next?
+    ---
+    Assign the Google Cloud service account to your GKE Pod using Workload Identity.
+
+# 192
+
+    You are planning to deploy hundreds of microservices in your Google Kubernetes Engine (GKE) cluster. How should you secure communication between the microservices on GKE using a managed service?
+    ---
+    Install Anthos Service Mesh, and enable mTLS in your Service Mesh
+
+# 193
+
+    You are developing an application that will store and access sensitive unstructured data objects in a Cloud Storage bucket. To comply with regulatory requirements, you need to ensure that all data objects are available for at least 7 years after their initial creation. Objects created more than 3 years ago are accessed very infrequently (less than once a year). You need to configure object storage while ensuring that storage cost is optimized. What should you do? (Choose two.)
+    ---
+    Set a retention policy on the bucket with a period of 7 years.
+    Create an object lifecycle policy on the bucket that moves objects from Standard Storage to Archive Storage after 3 years.
+
+# 194
+
+    You are developing an application using different microservices that must remain internal to the cluster. You want the ability to configure each microservice with a specific number of replicas. You also want the ability to address a specific microservice from any other microservice in a uniform way, regardless of the number of replicas the microservice scales to. You plan to implement this solution on Google Kubernetes Engine. What should you do?
+    ---
+    Deploy each microservice as a Deployment. Expose the Deployment in the cluster using a Service, and use the Service DNS name to address it from other microservices within the cluster.
+
+# 195
+
+    You are building an application that uses a distributed microservices architecture. You want to measure the performance and system resource utilization in one of the microservices written in Java. What should you do?
+    ---
+    Instrument the service with Cloud Profiler to measure CPU utilization and method-level execution times in the service.
+
+# 196
+
+    Your team is responsible for maintaining an application that aggregates news articles from many different sources. Your monitoring dashboard contains publicly accessible real-time reports and runs on a Compute Engine instance as a web application. External stakeholders and analysts need to access these reports via a secure channel without authentication. How should you configure this secure channel?
+    ---
+    Add an HTTP(S) load balancer in front of the monitoring dashboard. Set up a Google-managed SSL certificate on the load balancer for traffic encryption.
+
+    https://cloud.google.com/load-balancing/docs/ssl-certificates/google-managed-certs
+
+# 197
+
+    You are planning to add unit tests to your application. You need to be able to assert that published Pub/Sub messages are processed by your subscriber in order. You want the unit tests to be cost-effective and reliable. What should you do?
+    ---
+    Use the Pub/Sub emulator
+
+# 198
+
+    You have an application deployed in Google Kubernetes Engine (GKE) that reads and processes Pub/Sub messages. Each Pod handles a fixed number of messages per minute. The rate at which messages are published to the Pub/Sub topic varies considerably throughout the day and week, including occasional large batches of messages published at a single moment.
+
+    You want to scale your GKE Deployment to be able to process messages in a timely manner. What GKE feature should you use to automatically adapt your workload?
+    ---
+    Horizontal Pod Autoscaler based on an external metric
+    https://cloud.google.com/kubernetes-engine/docs/concepts/custom-and-external-metrics#external-metrics
+
+# 199
+
+    You are using Cloud Run to host a web application. You need to securely obtain the application project ID and region where the application is running and display this information to users. You want to use the most performant approach. What should you do?
+    ---
+    Use HTTP requests to query the available metadata server at the http://metadata.google.internal/ endpoint with the Metadata-Flavor: Google header.
+
+# 200
+
+    You need to deploy resources from your laptop to Google Cloud using Terraform. Resources in your Google Cloud environment must be created using a service account. Your Cloud Identity has the roles/iam.serviceAccountTokenCreator Identity and Access Management (IAM) role and the necessary permissions to deploy the resources using Terraform. You want to set up your development environment to deploy the desired resources following Google-recommended best practices. What should you do?
+    ---
+    B. 1. Run the following command from a command line: gcloud config set auth/impersonate_service_account service-account-name@project.iam.gserviceacccount.com.
+    2. Set the GOOGLE_OAUTH_ACCESS_TOKEN environment variable to the value that is returned by the gcloud auth print-access-token command. 

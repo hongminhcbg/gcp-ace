@@ -37,3 +37,7 @@ GCP ACE docs
   - cloud shell -> terraform -> resource
   - custom SA, compute engine -> trigger cloud func
   - node pools (runner, k8s)
+  - https://cloud.google.com/kms/docs/separation-of-duties#using_separate_project
+  - Enable Cloud CDN (GCS)
+  - Horizontal Pod Autoscaler based on an external metric
+  - Terraform basic (cloudSQL, CE, )
