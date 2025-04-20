@@ -1593,4 +1593,78 @@
 
 # 352
 
-    
+    You developed a Python script that retrieves information from files that are uploaded to Cloud Storage and writes the information to Bigtable. You have completed testing on your local environment and created the python-script service account with the Bigtable User IAM role. You want to deploy the code with the appropriate authentication while following Google-recommended practices. What should you do?
+    ---
+    A. 1. Deploy your code to Cloud Functions. Create a Cloud Storage trigger.
+    2. Configure IAM binding for authentication.
+    ---
+    B. 1. Deploy your code to Cloud Functions. Create a Cloud Storage trigger.
+    2. Create a service account key for authentication
+    WRONG because sa key not necessary, key can be lost
+
+# 353
+
+    You are a developer at a large organization. Your team uses Git for source code management (SCM). You want to ensure that your team follows Google-recommended best practices to manage code to drive higher rates of software delivery. Which SCM process should your team use?
+    ---
+    Each developer creates a branch for their own work, commits their changes to their branch, and merges their code into the main branch daily.
+
+# 354
+
+    You work for an ecommerce company. You are developing a new application with the following requirements:
+    • The application must have access to the most up-to-date data at all times.
+    • Due to company policy, data older than 30 days must be automatically deleted.
+
+    You need to determine which service should host the database, and how to configure the data deletion. You want to use the most efficient solution. What should you do?
+    ---
+    Configure Bigtable to host the database. Create a garbage collection policy in Bigtable that deletes data older than 30 days.
+
+# 355
+
+    Your application in production has recently been experiencing reliability issues, and you are unsure how the application will behave in the event of an unexpected failure. You want to assess the application's resilience. What should you do?
+    ---
+    B. Perform chaos engineering by intentionally introducing failures into the system. Observe how the application behaves, and ensure that it is able to recover from a failure.
+    Because Chaos engineering is the recommended approach for assessing resilience in production systems.
+    ---
+    D. Load testing helps evaluate performance under high demand, not how the system recovers from failure or handles instability.
+
+# 356
+
+    Your team is responsible for developing multiple microservices. These microservices are deployed in Cloud Run and connected to a Cloud SQL instance. You typically conduct tests in a local environment prior to deploying new features. However, the external IP was recently removed from your Cloud SQL instance, and you are unable to perform the tests. You need to connect to the database to conduct tests with the most updated data. You want to follow Google-recommended practices. What should you do?
+    ---
+    Create a VM in the same VPC as the Cloud SQL instance. Connect to the VM by using Identity-Aware Proxy for TCP forwarding. Install and configure the Cloud SQL Auth Proxy.
+
+# 357
+
+    You have an application running on Cloud Run that receives a large volume of traffic. You need to deploy a new version of the application. You want your deployment process to minimize the risk of downtime while following Google-recommended practices. What should you do?
+    ---
+    "minimize the risk of downtime"
+    Use traffic splitting to have a small percentage of users test out new features on the new revision of the application on the production Cloud Run service. If performance meets expectations, gradually increase the percentage of users until it reaches 100%
+    ---
+    Use Cloud Build to create a pipeline, and configure a test stage before the deployment stage. When all tests pass, deploy the application to Cloud Run, and direct 100% of users to this new version of the application. Roll back if any issues are detected.
+    ROLLBACK => downtime
+
+# 358
+
+    You are a developer at an ecommerce company. You are tasked with developing a globally consistent shopping cart for logged-in users across both mobile and desktop clients. You need to configure how the items that are added to users’ carts are stored. How should you configure this cart service?
+    ---
+    Store the carts in a separate Firestore document, and configure each user ID as the document's key.
+
+# 359
+
+    You are deploying a containerized application to GKE. You have set up a build pipeline by using Cloud Build that builds a Java application and pushes the application container image to Artifact Registry. Your build pipeline executes multiple sequential steps that reference Docker container images with the same layers.
+
+    You notice that the Cloud Build pipeline runs are taking longer than expected to complete. How should you optimize the Docker image build process
+    ---
+    Specify the cached image by adding the --cache-from argument in your build config file with the image as a cache source.
+
+# 360
+
+    You are developing a dashboard that aggregates temperature readings from thousands of IoT devices monitoring a city's ambient temperature. You expect a large amount of viewing traffic resulting in a large amount of data egress once the dashboard is live. The dashboard temperature display data doesn't need to be real-time and can tolerate a few seconds of lag. You decide to deploy Memorystore for Redis as the storage backend. You want to ensure that the dashboard will be highly available. How should you configure the service in Memorystore for Redis?
+    ---
+    Configure Memorystore to use read replicas.
+
+# 361
+
+    You are responsible for developing a new ecommerce application that is running on Cloud Run. You need to connect your application to a Cloud SQL database that is in a separate project. This project is on an isolated network dedicated to multiple databases without a public IP. You need to connect your application to this database. What should you do?
+    ---
+    Create a subnet on your VPC. Create a Serverless VPC Access connector on your project using the new subnet. In Cloud Run, create a Cloud SQL connection. Use Cloud SQL Language Connectors to interact with the database
