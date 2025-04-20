@@ -1346,3 +1346,251 @@
     Your team currently uses Bigtable as their database backend. In your application's app profile, you notice that the connection to the Bigtable cluster is specified as single-cluster routing, and the cluster’s connection logic is configured to conduct manual failover when the cluster is unavailable. You want to optimize the application code to have more efficient and highly available Bigtable connectivity. What should you do?
     ---
     
+# 316
+
+    You work for an ecommerce company. Your company is migrating multiple applications to Google Cloud, and you are assisting with the migration of one of the applications. The application is currently deployed on a VM without any OS dependencies. You have created a Dockerfile and used it to upload a new image to Artifact Registry. You want to minimize the infrastructure and operational complexity. What should you do?
+    ---
+    Deploy the image to Cloud Run.
+
+# 317
+
+    You recently deployed an Apigee API proxy to your organization across two regions. Both regions are configured with a separate backend that is hosting the API. You need to configure Apigee to route traffic to the appropriate local region backend. What should you do?
+    apigee region 1 -> BE region 1
+    apigee region 2 -> BE region 2
+    ---
+    Configure a TargetServer for each region's backend host names. Configure the API proxy to choose the TargetServer based on the system.region.name flow variable.
+
+# 318
+
+    You are a developer that works for a local concert venue. Customers use your company’s website to purchase tickets for events. You need to provide customers with immediate confirmation when a selected seat has been reserved. How should you design the ticket ordering process?
+    ---
+    Submit the seat reservation in an HTTP POST request to an Application Load Balancer. Configure the Application Load Balancer to distribute the request to a Compute Engine managed instance group that processes the reservation.
+    ---
+    pub/sub and async solution is WRONG because *immediate*
+
+# 319
+
+    You work for a financial services company that has a container-first approach. Your team develops microservices applications. You have a Cloud Build pipeline that creates a container image, runs regression tests, and publishes the image to Artifact Registry. You need to ensure that only containers that have passed the regression tests are deployed to GKE clusters. You have already enabled Binary Authorization on the GKE clusters. What should you do next?
+    ---
+    Create an attestor and a policy. Create an attestation for the container images that have passed the regression tests as a step in the Cloud Build pipeline.
+
+# 320
+
+    You have an application running in production on Cloud Run. Your team needs to change one of the application’s services to return a new field. You want to test the new revision on 10% of your clients using the least amount of effort. You also need to keep your service backward compatible.
+
+    What should you do?
+    ---
+    Update the current service with the new changes. Deploy the new revision with no traffic allocated. Split the traffic between the current service and the new revision.
+
+# 321
+
+    Your team plans to use AlloyDB as their database backend for an upcoming application release. Your application is currently hosted in a different project and network than the AlloyDB instances. You need to securely connect your application to the AlloyDB instance while keeping the projects isolated. You want to minimize additional operations and follow Google-recommended practices. How should you configure the network for database connectivity?
+    ---
+    Provision a Shared VPC project where both the application project and the AlloyDB project are service projects.
+
+# 322
+
+    You have an on-premises containerized service written in the current stable version of Python 3 that is available only to users in the United States. The service has high traffic during the day and no traffic at night. You need to migrate this application to Google Cloud and track error logs after the migration in Error Reporting. You want to minimize the cost and effort of these tasks. What should you do?
+    ---
+    Deploy the code on Cloud Run. Configure your code to write errors to standard error.
+
+# 323
+
+    Your team is developing a new application that is packaged as a container and stored in Artifact Registry. You are responsible for configuring the CI/CD pipelines that use Cloud Build. Containers may be pushed manually as a local development effort or in an emergency. Every time a new container is pushed to Artifact Registry, you need to trigger another Cloud Build pipeline that executes a vulnerability scan. You want to implement this requirement using the least amount of effort. What should you do?
+    ---
+    Configure Artifact Registry to publish a message to a Pub/Sub topic when a new image is pushed. Configure the vulnerability scan pipeline to be triggered by the Pub/Sub message.
+
+# 324
+
+    You have an application running on a GKE cluster. Your application has a stateless web frontend, and has a high-availability requirement. Your cluster is set to automatically upgrade, and some of your nodes need to be drained. You need to ensure that the application has a serving capacity of 10% of the Pods prior to the drain. What should you do?
+    ---
+    Configure the Pod replica count to be 10% more than the current replica count.
+
+# 325
+
+    You are designing an application that shares PDF files containing time-sensitive information with users. The PDF files are saved in Cloud Storage. You need to provide secure access to the files.
+
+    You have the following requirements:
+    • Users should only have access to files that they are allowed to view.
+    • Users should be able to request to read, write, or delete the PDF files for 24 hours.
+
+    Not all users of the application have a Google account. How should you provide access to data objects?
+    ---
+    generate signed URLs
+
+# 326
+
+# 327
+
+    Your infrastructure team uses Terraform Cloud and manages Google Cloud resources by using Terraform configuration files. You want to configure an infrastructure as code pipeline that authenticates to Google Cloud APIs. You want to use the most secure approach and minimize changes to the configuration. How should you configure the authentication?
+    ---
+    Configure Terraform Cloud to use workload identity federation to authenticate to the Google Cloud APIs.
+    https://cloud.google.com/docs/terraform/install-configure-terraform
+
+# 328
+
+    Your team has created an application that is hosted on a GKE cluster. You need to connect the application to a REST service that is deployed in two GKE clusters in two different regions. How should you set up the connection and health checks? (Choose two.)
+    ---
+    Use Cloud Service Mesh with sidecar proxies to connect the application to the REST service. (like anthos)
+    Configure the REST service's firewall to allow health checks originating from the GKE check probe’s IP ranges. (must allow to health check)
+
+# 329 
+
+    You are using the latest stable version of Python 3 to develop an API that stores data in a Cloud SQL database. You need to perform CRUD operations on the production database securely and reliably with minimal effort. What should you do?
+    ---
+    C. 1. Use the Cloud SQL connector library for Python to connect to the Cloud SQL database through a Cloud SQL Auth Proxy.
+    2. Grant an IAM role to the service account that includes the cloudsql.instances.connect permission.
+
+# 330
+
+    Your company manages an application that captures stock data in an internal database. You need to create an API that provides real-time stock data to users. You want to return stock data to users as quickly as possible, and you want your solution to be highly scalable. What should you do?
+    ---
+    Create a Memorystore for Redis instance, and use this database to store the most accessed stock data. Query this instance first when user requests are received, and fall back to the internal database.
+
+# 331
+
+    You are designing a microservices architecture for a new application that will be deployed on Cloud Run. The application requires high-throughput communication between the internal microservices. You want to use the most effective, lowest latency communication protocol for this application. What should you do?
+    ---
+    Configure the Cloud Run service to use HTTP/2. Implement gRPC for communication between the microservices. Use streaming gRPCs when a large amount of data has to be sent.
+
+# 332
+
+    Your company recently modernized their monolith ecommerce site to a microservices application in GKE. Your team uses Google Cloud's operations suite for monitoring and logging. You want to improve the logging indexing and searchabilty in Cloud Logging across your microservices with the least amount of effort. What should you do?
+    ---
+    Update your microservices code to emit logs in JSON format.
+    "logging indexing" and "searchabilty" => index and search by json field
+
+# 333
+
+    You recently developed an application that will be hosted on Cloud Run. You need to conduct a load test. You want to analyze the load test logs second by second to understand your Cloud Run service's response to rapid traffic spikes. You want to minimize effort. How should you analyze the logs?
+    ---
+    Analyze the log data in BigQuery by configuring a BigQuery log sink with the appropriate inclusion filter for your application.
+    
+# 334
+
+    You are a developer of a new customer-facing help desk chat service that is built on Cloud Run. Your customers use the chat option on your website to get support. The application saves each transcript as a text file with a unique identifier in a Cloud Storage bucket. After the conversation is done and before the chat window is closed, the customer receives a link to the chat transcript. You want to provide access to the chat transcript link for 2 hours. You need to configure this access using an approach that prioritizes security and follows Google-recommended practices. What should you do?
+    ---
+    Create a signed URL for each text file that expires after 2 hours.
+
+# 335
+
+    You are responsible for managing the security of internal applications in your company. The applications are deployed on Cloud Run, and use Secret Manager to store passwords needed to access internal databases. Each application can cache secrets for up to 15 minutes. You need to determine how to rotate the secrets. You want to avoid application downtime. What should you do?
+    ---
+    Store the new password in the secret. Reference the latest version of any secret required, and cache the secret for 15 minutes.
+
+# 336
+
+    You are developing a new ecommerce application that uses Cloud Functions. You want to expose your application's APIs to public users while maintaining a high level of security. You need to ensure that only authorized users can access your APIs and that all API traffic is encrypted and protected from unauthorized access. You want to use the most scalable and secure approach. What should you do?
+    ---
+    Deploy your Cloud Functions behind an Apigee proxy and use Apigee’s authentication and authorization features to secure your APIs.
+
+# 337 
+    
+    You are deploying a microservices application to GKE. One microservice needs to download files from a Cloud Storage bucket. You have an IAM service account with the Storage Object Viewer role on the project with the bucket. You need to configure your application to access the Cloud Storage bucket while following Google-recommended practices. What should you do?
+    ---
+    Create a Kubernetes service account. Use an IAM policy to bind the IAM service account to a Kubernetes service account. Annotate the Kubernetes ServiceAccount object with the name of the bound IAM service account. Assign the Kubernetes ServiceAccount to the Pods that need to access the bucket.
+
+# 338
+
+# 339
+
+    You are developing a new ecommerce website for your company. You want customers to receive a customized email notification when they place an order. You need to configure this email service while minimizing deployment effort. What should you do?
+    ---
+    Create a Cloud Function that is triggered by a create type event in Firestore,
+    Minimal deployment effort:
+
+# 340
+
+    You are developing an online chat application where users can upload profile pictures. Uploaded profile pictures must comply with content policies. You need to detect inappropriate images and label those images automatically when they are uploaded. In the future, this process will need to be expanded to include additional processing tasks such as watermarking and image compression.
+
+    You want to simplify orchestration and minimize operational overhead of the image scanning and labeling steps while also ensuring that additional steps can be added and removed easily later on. What should you do?
+    ---
+    Save user-uploaded images to a Cloud Storage bucket. Create an Eventarc trigger that connects the bucket to the Workflows event receiver when a new image is uploaded. Create a workflow in Workflows with multiple Cloud Functions that call the Vision API to process each new uploaded image.
+
+    process image => cloud workflows
+
+# 341
+
+    Your application named ecom-web-app is deployed in three GKE clusters: ecom-web-app-dev, ecom-web-app-qa, and ecom-web-app-prod. You need to ensure that only trusted container images are deployed to the ecom-web-app-prod GKE cluster in the production environment while following Google-recommended practices. What should you do?
+    ---
+    Set up Binary Authorization, and define cluster-specific rules in clusterAdmissionRules nodes in the policy YAML file.
+
+# 342
+
+    You are responsible for improving the security of your Cloud Run services to protect these services against supply chain threats. You need to ensure that there are adequate security controls such as SLSA Level 3 builds for container images and non-falsifiable provenance for container images by using Google Cloud tools. What should you do?
+    ---
+    Use Cloud Build to build container images. Configure a Binary Authorization policy on the Cloud Run job.
+
+# 343
+
+    There are three teams developing an ecommerce application in the same Google Cloud project. Team A will build a set of RESTful APIs that exposes some core functionalities for the application. Team B and Team C will make requests to those APIs in their downstream processes running on Cloud Run services. You need to propose a solution for exposing the APIs in a way that maximizes security and minimizes management overhead for the three teams. How should you design this solution?
+    ---
+    1. Team A uses service accounts to authorize Cloud API Gateway. Team B and Team C each create a service account that has access to the APIs.
+    2. Team B and Team C access the APIs in the Cloud Run service running their processes by using the service accounts attached to their service.
+
+# 344
+
+    Your application team is developing an ecommerce application. Your team has developed a new functionality that has a dependency on a third-party service. This third-party service will be deployed in a few days. However, you have been unable to ensure the reliability of this service. You need to choose a deployment strategy for the ecommerce application that will avoid disruption and can be rolled back quickly if issues are discovered. What should you do?
+    ---
+    Use a feature flag to enable the new functionality to users on demand. Gradually enable the new functionality to more users.
+
+# 345
+
+    You work for an organization that manages an ecommerce site. Your application is deployed behind an external Application Load Balancer. You need to test a new product recommendation algorithm. You plan to use A/B testing to determine the new algorithm’s effect on sales in a randomized way. How should you test this feature?
+    ---
+    Split traffic between versions using weights.
+
+# 346
+
+    You maintain a CI/CD pipeline for an application running on GKE. You use Cloud Build to create container images and push the images to Artifact Registry. When you build the image, you use the latest tag in your pipeline.
+
+    You recently had to roll back a deployment 24 hours after rollout. The rollback process was difficult because the latest tag had been overwritten. You need to prevent this issue in the future. You want to use the most efficient approach. What should you do?
+    ---
+    Build a separate Docker image for each new version of the application, and tag it with the version number.
+
+# 347
+
+    You are designing a microservices application on GKE that will expose a public API to users. Users will interact with the application by using OAuth 2.0, and illegitimate requests should receive a 403 response code. You need the API to be resilient against distributed denial of service (DDoS) attacks and critical security risks such as SQL injection (SQL) and cross-site scripting (XSS).
+
+    You want to design the application's architecture while following Google-recommended practices. What should you do?
+    ---
+    Use an external Application Load Balancer with Cloud Armor, and configure the load balancer to forward requests to Apigee to check the validity of the API requests. Configure GKE as the application's backend.
+
+    Cloud Armor: DDoS,  helping to mitigate threats like SQL injection and XSS.
+    Apigee: ratelimit, 
+    ---
+    reCAPTCHA Enterprise: Great for bot mitigation
+    WRONG
+
+# 348
+
+    You are compiling a compliance report on vulnerability metadata for a specific set of images identified by Artifact Analysis. Metadata from images scanned more than 30 days ago are missing from the compliance report. You need to access the vulnerability metadata for these older images. What should you do?
+    ---
+    Push or pull the images from Artifact Registry.
+    when u push or pull img, it re-trigger a fresh vulnerability scan
+
+# 349
+
+    Your team runs a Python job that reads millions of customer record files stored in a Cloud Storage bucket. To comply with regulatory requirements, you need to ensure that customer data is immediately deleted once the job is completed. You want to minimize the time required to complete this task. What should you do?
+    ---
+    Add a final step in the job that deletes all the objects in the bucket in bulk by using batch requests to the Cloud Storage API.
+    ---
+    gsutil rm ...
+    WRONG because "immediately"
+
+# 350
+
+    You are a developer at a regulated financial company and are the lead of a risk calculation application that is running on Cloud Run. Binary Authorization for Cloud Run has been enabled as an organization policy, and there is one attestor. All applications in the company are attested. Each application's image is deployed as part of a CI/CD pipeline during a 1-hour change window at 11 PM local time. There is a new security issue that requires you to deploy a critical fix before the next change window. You have created a new image with the fix, and your manager has approved the image in an email message. What should you do?
+    ---
+    Use the breakglass approach to deploy the image.
+    a method of bypassing security controls that normally guard a system or service
+
+# 351
+
+    You have a Cloud Run service that needs to connect to a Cloud SQL instance in a different project. You provisioned the Cloud Run service account with the Cloud SQL Client IAM role on the project that is hosting Cloud SQL. However, when you test the connection, the connection fails. You want to fix the connection failure while following Google-recommended practices. What should you do?
+    ---
+    C. Enable the Cloud SQL Admin API in both projects.
+
+# 352
+
+    

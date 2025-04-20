@@ -41,3 +41,7 @@ GCP ACE docs
   - Enable Cloud CDN (GCS)
   - Horizontal Pod Autoscaler based on an external metric
   - Terraform basic (cloudSQL, CE, )
+  - APIgee
+  - Cloud SQL Auth Proxy with custom sa with role cloudsql.instances.connect (app engine -> proxy -> cloud SQL)
+
+  
