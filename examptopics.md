@@ -1228,3 +1228,121 @@
     ---
     B. 1. Run the following command from a command line: gcloud config set auth/impersonate_service_account service-account-name@project.iam.gserviceacccount.com.
     2. Set the GOOGLE_OAUTH_ACCESS_TOKEN environment variable to the value that is returned by the gcloud auth print-access-token command. 
+
+# 301
+
+    You are developing a public web application on Cloud Run. You expose the Cloud Run service directly with its public IP address. You are now running a load test to ensure that your application is resilient against high traffic loads. You notice that your application performs as expected when you initiate light traffic. However, when you generate high loads, your web server runs slowly and returns error messages. How should you troubleshoot this issue?
+    ---
+    Check whether the Cloud Run service has scaled to a number of instances that equals the max-instances value. If necessary, increase the max-instances value.
+
+# 302
+
+    You are developing a new image processing application that needs to handle various tasks, such as resizing, cropping, and watermarking images. You also need to monitor the workflow and ensure that it scales efficiently when there are large volumes of images. You want to automate the image processing tasks and workflow monitoring with the least effort. What should you do?
+    ---
+    Implement Workflows to orchestrate the image processing tasks. Use Cloud Logging for workflow monitoring.
+
+    GCP workflows https://cloud.google.com/workflows#all-features
+
+# 303
+
+    You are developing a web application that will be deployed to production on Cloud Run. The application consists of multiple microservices, some of which will be publicly accessible and others that will only be accessible after authentication by Google identities. You need to ensure that only authenticated users can access the restricted services, while allowing unrestricted access to the public services of the application. You want to use the most secure approach while minimizing management overhead and complexity. How should you configure access?
+    ---
+    Configure separate Cloud Run services for the public and restricted microservices. Enable Identity-Aware Proxy (IAP) only for the restricted services, and configure the Cloud Run ingress settings to ‘Internal and Cloud Load Balancing’.
+
+# 304
+
+    You are the lead developer for a company that provides a financial risk calculation API. The API is built on Cloud Run and has a gRPC interface. You frequently develop optimizations to the risk calculators. You want to enable these optimizations for select customers who registered to try out the optimizations prior to rolling out the optimization to all customers. Your CI/CD pipeline has built a new image and stored it in the Artifact Registry.
+
+    Which rollout strategy should you use?
+    ---
+    Migrate the traffic to the new service by using a feature flag for registered customers.
+    ---
+    Migrate the traffic to the new service by setting Cloud Run’s traffic split based on the percentage of registered customers
+    WRONG because "for select customers who registered"
+
+# 305
+
+    Your ecommerce application has a rapidly growing user base, and it is experiencing performance issues due to excessive requests to your backend API. Your team develops and manages this API. The Cloud SQL backend database is struggling to handle the high demand, leading to latency and timeouts. You need to implement a solution that optimizes API performance and improves user experience. What should you do?
+    ---
+    A. Use Apigee to expose your API. Use Memorystore for Redis to cache frequently accessed data. Implement exponential backoff in the application to retry failed requests.
+
+    https://cloud.google.com/apigee/docs/api-platform/get-started/what-apigee
+    ---
+    Use Cloud Load Balancing to expose your API. Increase the memory for the database instances to handle more concurrent requests. Implement a custom rate-limiting mechanism in your application code to control API requests.
+    WRONG because increase memory not long term solution
+
+# 306
+
+    You need to deploy a new feature into production on Cloud Run. Your company’s SRE team mandates gradual deployments to avoid large downtimes caused by code change errors. You want to configure this deployment with minimal effort. What should you do?
+    ---
+    Deploy the feature with “Serve this revision immediately” unchecked, and configure the new revision to serve a small percentage of traffic. Check for errors, and increase traffic to the revision as appropriate.
+
+    Canary deployment
+    ---
+    Configure the application code to send a small percentage of users to the newly deployed revision. 
+    WRONG because change client code very complex
+
+# 307
+
+    You are developing an external-facing application on GKE that provides a streaming API to users. You want to offer two subscription tiers, “basic" and “premium", to users based on the number of API requests that each client application is allowed to make each day. You want to design the application architecture to provide subscription tiers to users while following Google-recommended practices. What should you do?
+    ---
+    A. 
+    1. Configure the service on GKE as a backend to an Apigee proxy.
+    2. Provide API keys to users to identify client applications.
+    3. Configure a Quota policy in Apigee for API keys based on the subscription tier.
+
+# 308
+
+    Your organization has users and groups configured in an external identity provider (IdP). You want to leverage the same external IdP to allow Google Cloud console access to all employees. You also want to personalize the sign-in experience by displaying the user's name and photo when users access the Google Cloud console. What should you do?
+    ---
+    Configure workforce identity federation with the external IdP, and set up attribute mapping.
+
+# 309
+
+    You are developing a new API that creates requests on an asynchronous message service. Requests will be consumed by different services. You need to expose the API by using a gRPC interface while minimizing infrastructure management overhead. How should you deploy the API?
+    ---
+    Deploy your API as a Cloud Run service. Create a Pub/Sub topic, and configure your API to push messages to the topic.
+
+# 310
+
+    You are about to deploy an application hosted on a Compute Engine instance with Windows OS and Cloud SQL. You plan to use the Cloud SQL Auth Proxy for connectivity to the Cloud SQL instance. You plan to follow Google-recommended practices and the principle of least privilege. You have already created a custom service account. What should you do next?
+    ---
+    A. Create and assign a custom role with the cloudsql.instances.connect permission to the custom service account. Adjust the Cloud SQL Auth Proxy start command to specify your instance connection name.
+    ---
+    B: Grant the custom service account the roles/cloudsql.client role. Adjust the Cloud SQL Auth Proxy start command to use the --unix-socket CLI option.
+    WRONG because 
+    --unix-socket: not for window
+    cloudsqlclient = connect + get
+
+# 311
+
+    You are developing a secure document sharing platform. The platform allows users to share documents with other users who may be external to their organization. Access to these documents should be revoked after a configurable time period. The documents are stored in Cloud Storage. How should you configure Cloud Storage to support this functionality?
+    ---
+    Generate a signed URL for each document the user wants to share.
+
+# 312
+
+    You work for an environmental agency in a large city. You are developing a new monitoring platform that will capture air quality readings from thousands of locations in the city. You want the air quality reading devices to send and receive their data payload to the newly created RESTful backend systems every minute by using a curl command. The backend systems are running in a single cloud region and are using Premium Tier networking. You need to connect the devices to the backend while minimizing the daily average latency, measured by using Time to First Byte (TTFB). How should you build this service?
+    ---
+    D. 
+    1 Run the air quality devices' backends in a managed instance group.
+    2. Create an external Application Load Balancer, and connect it to the managed instance group.
+    3. Configure a connection between the air quality devices and the Application Load Balancer.
+
+# 313
+
+    Your infrastructure team is responsible for creating and managing Compute Engine VMs. Your team uses the Google Cloud console and gcloud CLI to provision resources for the development environment. You need to ensure that all Compute Engine VMs are labeled correctly for compliance reasons. In case of missing labels, you need to implement corrective actions so the labels are configured accordingly without changing the current deployment process. You want to use the most scalable approach. What should you do?
+    ---
+    Use a Cloud Audit Logs trigger to invoke a Cloud Function when a Compute Engine VM is created. Check for missing labels and assign them if necessary.
+
+# 314
+
+    You are developing a discussion portal that is built on Cloud Run. Incoming external requests are routed through a set of microservices before a response is sent. Some of these microservices connect to databases. You need to run a load test to identify any bottlenecks in the application when it is under load. You want to follow Google-recommended practices. What should you do?
+    ---
+    Configure Cloud Trace to capture the requests from the load testing clients. Review the timings in Cloud Trace.
+
+# 315
+
+    Your team currently uses Bigtable as their database backend. In your application's app profile, you notice that the connection to the Bigtable cluster is specified as single-cluster routing, and the cluster’s connection logic is configured to conduct manual failover when the cluster is unavailable. You want to optimize the application code to have more efficient and highly available Bigtable connectivity. What should you do?
+    ---
+    
