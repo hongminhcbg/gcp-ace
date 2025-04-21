@@ -1,17 +1,18 @@
-https://cloud.google.com/kubernetes-engine/docs/concepts/node-pools
+## Node pools
 
-features:
-
-    - exe untrusted 3rd party 
-    - efficient + auto scaling
-
-GKE apha mode: max 30 days
-
-Notes:
+  https://cloud.google.com/kubernetes-engine/docs/concepts/node-pools
+  features:
+      - exe untrusted 3rd party 
+      - efficient + auto scaling
+  GKE apha mode: max 30 days
+  Notes:
 
     - GKE loadbalancer, Add an annotation: cloud.google.com/load-balancer-type: Internal => auto create loadbalancer
     - GKE auto pilot = optimize cost and ops
 
+  Zonal vs multi-zonal
+  Managed instance group unrelated node pools
+  
 # Cloud Connector:
 
     - k8s can manage cloud resource
@@ -84,3 +85,7 @@ gsutil ls gs://xxxyyymint
 ## Engress
 
     - a set of rules for routing external HTTP(s) to svcs
+
+## Notes
+
+  - Distribute your workload evenly using a multi-zonal node pool
