@@ -123,7 +123,7 @@ docs:
 
 https://cloud.google.com/sql/docs/mysql/connect-instance-compute-engine
 https://cloud.google.com/sql/docs/mysql/configure-ip#add
-
+https://cloud.google.com/sql/docs/mysql/connect-admin-ip
 
 #### With public IP
 
