@@ -67,6 +67,7 @@ I. Storage
     - offline mode or data sync across multiple devices - mobile, iot
     - provide client-side lib (web, ios, android)
     - collections <=> tables
+    - cursors = query limit + offset, optimize RAM when query
 
 ## Bigtable:
 
@@ -178,3 +179,8 @@ mysql -u root -p --host 127.0.0.1
     - expensive than cloudSQL
     - read/write across region (no need read replicas)
     - cloud spanner = cloudSQL + hoziontal scale (no limit RAM and CPU)
+
+## Decrease spanner unit
+
+  In the latter case, you might try reducing the compute capacity by progressively smaller amounts until you find the minimum capacity that Spanner needs to manage all of the instance's splits. If the instance no longer requires so many splits due to a change in usage patterns, Spanner might eventually merge some splits together and allow you to try reducing the instance's compute capacity further after a week or two.
+  When removing compute capacity, monitor your CPU utilization and request latencies in Cloud Monitoring to ensure CPU utilization stays under 65% for regional instances and 45% for each region in multi-region instances. You might experience a temporary increase in request latencies while removing compute capacity.

@@ -1668,3 +1668,19 @@
     You are responsible for developing a new ecommerce application that is running on Cloud Run. You need to connect your application to a Cloud SQL database that is in a separate project. This project is on an isolated network dedicated to multiple databases without a public IP. You need to connect your application to this database. What should you do?
     ---
     Create a subnet on your VPC. Create a Serverless VPC Access connector on your project using the new subnet. In Cloud Run, create a Cloud SQL connection. Use Cloud SQL Language Connectors to interact with the database
+
+# 225
+
+    Before promoting your new application code to production, you want to conduct testing across a variety of different users. Although this plan is risky, you want to test the new version of the application with production users and you want to control which users are forwarded to the new version of the application based on their operating system. If bugs are discovered in the new version, you want to roll back the newly deployed version of the application as quickly as possible.
+
+    What should you do?
+    ---
+    Deploy your application on Google Kubernetes Engine with Anthos Service Mesh. Use traffic splitting to direct a subset of user traffic to the new version based on the user-agent header
+    Anthos Service Mesh: quickly rollback
+    user-agent: container os (androi, ios) => "control which users"
+    ---
+    Deploy your application on App Engine. Use traffic splitting to direct a subset of user traffic to the new version based on the IP address.
+    WRONG because can't control which users
+
+    
+
