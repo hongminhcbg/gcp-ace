@@ -128,6 +128,7 @@
     U want to find out how much time there queries take to exe
     ---
     Use Stackdriver Monitoring to plot query execution times
+    https://cloud.google.com/bigquery/docs/monitoring
 
 # 56
 
@@ -239,7 +240,7 @@
     Your application is deployed in a Google Kubernetes Engine (GKE) cluster. You want to expose this application publicly behind a Cloud Load Balancing HTTP(S) load balancer.
     What should you do?
     ---
-    Configure a GKE Ingress resource with type: LoadBalancer.
+    Configure a GKE Ingress resource
 
 # 71
 
@@ -1719,4 +1720,26 @@
     ---
     B: Eventarc support flexible, declarative events
 
-    
+# 23
+
+    You want to use the Stackdriver Logging Agent to send an application's log file to Stackdriver from a Compute Engine virtual machine instance.
+    After installing the Stackdriver Logging Agent, what should you do first?
+    ---
+    Configure the application log file as a custom source
+
+# 30
+
+    Your company has a BigQuery dataset named "Master" that keeps information about employee travel and expenses. This information is organized by employee department. That means employees should only be able to view information for their department. You want to apply a security framework to enforce this requirement with the minimum number of steps.
+    What should you do?
+    ---
+    Create a dataset named Master dataset. Create a separate view for each department in the Master dataset. Give employees access to the specific view for their department
+
+# 31
+
+    You have an application in production. It is deployed on Compute Engine virtual machine instances controlled by a managed instance group. Traffic is routed to the instances via a HTTP(s) load balancer. Your users are unable to access your application. You want to implement a monitoring technique to alert you when the application is unavailable.
+    Which technique should you choose?
+    ---
+    Stackdriver uptime checks
+    ---
+    Cloud Load Balancing - heath checks => WRONG, can't alert
+

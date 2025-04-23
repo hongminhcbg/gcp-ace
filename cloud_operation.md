@@ -29,3 +29,9 @@
 
 
 ## Trace explorer
+
+
+## Notes
+
+    - You want to see what is the problem in the code without altering it. => Logpoints.
+    

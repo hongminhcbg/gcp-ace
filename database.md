@@ -73,6 +73,7 @@ I. Storage
 
     - petabytes and more 
     - not serverless
+    - https://cloud.google.com/bigquery/docs/running-queries#batch => save time
 
 ## Bigquery - datawarehouse
 
@@ -84,6 +85,7 @@ I. Storage
     - remember bq can be expensive as you are running them on large data sets, est price with --dry-run flag
     - price cost based on 1MB scaned data
     - dry-run (https://cloud.google.com/bigquery/docs/running-queries#dry-run)
+    - can create separate viewer on same datasheet
 
 ## Inmem db (redis + memory store)
 
