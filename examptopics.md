@@ -664,7 +664,7 @@
 
     You have an HTTP Cloud Function that is called via POST. Each submission's request body has a flat, unnested JSON structure containing numeric and text data. After the Cloud Function completes, the collected data should be immediately available for ongoing and complex analytics by many users in parallel. How should you persist the submissions?
     ---
-    ransform the POST request's JSON data, and stream it into BigQuery.
+    transform the POST request's JSON data, and stream it into BigQuery.
 
 # 131
 
@@ -959,8 +959,9 @@
 # 169
     HipLocal's application uses Cloud Client Libraries to interact with Google Cloud. HipLocal needs to configure authentication and authorization in the Cloud Client Libraries to implement least privileged access for the application. What should they do?
     ---
-
     C: Create a service account for the application. Export and deploy the private key for the application. Use the service account to interact with Google Cloud.
+    ---
+    WRONG
     D: Create a service account for the application and for each Google Cloud API used by the application. Export and deploy the private keys used by the application. Use the service account with one Google Cloud API to interact with Google Cloud. => very complex
 
 # 170
@@ -1030,7 +1031,7 @@
 
     You manage a microservices application on Google Kubernetes Engine (GKE) using Istio. You secure the communication channels between your microservices by implementing an Istio AuthorizationPolicy, a Kubernetes NetworkPolicy, and mTLS on your GKE cluster. You discover that HTTP requests between two Pods to specific URLs fail, while other requests to other URLs succeed. What is the cause of the connection issue?
     ---
-     The Authorization Policy of your cluster is blocking HTTP requests for specific paths within your application.
+    The Authorization Policy of your cluster is blocking HTTP requests for specific paths within your application.
 
 # 178
 
