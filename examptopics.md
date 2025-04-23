@@ -1684,3 +1684,39 @@
 
     
 
+# 251
+
+    You are working on a new application that is deployed on Cloud Run and uses Cloud Functions. Each time new features are added, new Cloud Functions and Cloud Run services are deployed. You use ENV variables to keep track of the services and enable interservice communication, but the maintenance of the ENV variables has become difficult. You want to implement dynamic discovery in a scalable way. What should you do?
+    ---
+    Create a Service Directory namespace. Use API calls to register the services during deployment, and query during runtime.
+
+# 252
+
+    You work for a financial services company that has a container-first approach. Your team develops microservices applications. A Cloud Build pipeline creates the container image, runs regression tests, and publishes the image to Artifact Registry. You need to ensure that only containers that have passed the regression tests are deployed to Google Kubernetes Engine (GKE) clusters. You have already enabled Binary Authorization on the GKE clusters. What should you do next?
+    ---
+    Create an attestor and a policy. After a container image has successfully passed the regression tests, use Cloud Build to run Kritis Signer to create an attestation for the container image
+    Example
+
+    apiVersion: kritis.grafeas.io/v1beta1
+    kind: VulnzSigningPolicy
+    metadata:
+      name: my-vsp
+    spec:
+      imageVulnerabilityRequirements:
+        maximumFixableSeverity: MEDIUM
+        maximumUnfixableSeverity: MEDIUM
+        allowlistCVEs:
+        - projects/goog-vulnz/notes/CVE-2021-20305
+
+# 263
+
+    You are developing a new application. You want the application to be triggered only when a given file is updated in your Cloud Storage bucket. Your trigger might change, so your process must support different types of triggers. You want the configuration to be simple so that multiple team members can update the triggers in the future. What should you do?
+
+    A. Configure Cloud Storage events to be sent to Pub/Sub, and use Pub/Sub events to trigger a Cloud Build job that executes your application.
+    B. Create an Eventarc trigger that monitors your Cloud Storage bucket for a specific filename, and set the target as Cloud Run. Most VotedMost Voted
+    C. Configure a Cloud Function that executes your application and is triggered when an object is updated in Cloud Storage.
+    D. Configure a Firebase function that executes your application and is triggered when an object is updated in Cloud Storage.
+    ---
+    B: Eventarc support flexible, declarative events
+
+    

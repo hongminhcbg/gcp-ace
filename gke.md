@@ -93,3 +93,5 @@ gsutil ls gs://xxxyyymint
     gcloud container get-cluster credentials  => your IP not in whitelist
   - app slow to launch, fail liveness probe => Add a startup probe.
   - A rolling update with a PodDisruptionBudget (PDB) of 80% helps to minimize the risk of issues after deploying a new revision to a production environment in GKE. The PDB specifies the number of pods in a deployment that must remain available during an update, ensuring that there is sufficient capacity to handle any increase in traffic or demand. By setting a PDB of 80%, you ensure that at least 80% of the pods are available during the update, reducing the risk of disruption to your application. This is a recommended best practice by Google for deploying updates to production environments in GKE.
+  - cluster notifycation => pub/sub (https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-notification)
+  
