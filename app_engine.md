@@ -1,6 +1,6 @@
 App engine
 
-    - simplest way go deploy and scale App
+    - simplest way to deploy and scale App
     - idea like deploy a docker image to cloud
     - only one app for each project
     - simple microservices
